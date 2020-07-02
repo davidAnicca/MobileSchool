@@ -1,5 +1,6 @@
 package com.kikoteam.mobileschool;
 
+import android.widget.Switch;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 

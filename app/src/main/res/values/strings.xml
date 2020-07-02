@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MobileSchool</string>
+    <string name="testtext">TestText</string>
+    <string name="todo">TODO</string>
 </resources>
