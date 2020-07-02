@@ -1,5 +1,30 @@
 <resources>
-    <string name="app_name">MobileSchool</string>
-    <string name="testtext">TestText</string>
+    <string name="appName">MobileSchool</string>
+    <string name="mail">Email</string>
+    <string name="pass">Password</string>
+    <string name="repeatPass">Repeat Password</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="testText">TestText</string>
     <string name="todo">TODO</string>
+    <string name="alreadyRegistered">Already singed-up?</string>
+    <string name="agree">Sunt de acord</string>
+    <string name="conditionsTitle">Termeni și condiții</string>
+    <string name="conditions">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Quisque sagittis faucibus consequat. Vestibulum
+        ante ipsum primis in faucibusorci luctus et ultrices
+        posuere cubilia curae;In ultricies metus non commodo varius.
+        Curabitur massa orci, iaculis nec nibh at, consequat feugiat justo.
+        Aliquam erat volutpat. Phasellus efficitur, magna posuere pulvinar
+        egestas, enim lorem pharetra mauris, id egestas ante odio quis quam.
+        Morbi fermentum suscipit odio vitae placerat. Sed mollis enim magna,
+        in mattis ligula consequat quis. Pellentesque dapibus urna leo,
+        a congue elit luctus sed. Nullam quis dui ornare, sodales turpis quis,
+        sollicitudin nisl. Pellentesque habitant morbi tristique senectus et
+        netus et malesuada fames ac turpis egestas.
+        Nullam venenatis fermentum molestie.
+        Mauris eget orci et dolor facilisis efficitur.
+        Nunc nec facilisis turpis, imperdiet suscipit risus.</string>
+    <string name="thank">Mulțumim</string>
 </resources>
+
