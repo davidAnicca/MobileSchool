@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.kikoteam.mobileschool.RegisterLogIn.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
 
