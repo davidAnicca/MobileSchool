@@ -16,9 +16,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText inEmail, inPassword, inPassword2;
+    private EditText inEmail, inPassword, inRepeatedPassword;
     private FirebaseAuth fAuth;
 
     @Override
@@ -26,13 +28,78 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        fAuth = FirebaseAuth.getInstance();
 
-        if(fAuth.getCurrentUser() != null ){
+        fAuth = FirebaseAuth.getInstance();
+        stopIfUserIsLoggedId();
+        tryToLogIn();
+
+
+        inEmail = findViewById(R.id.mail);
+        inPassword = findViewById(R.id.pass);
+        inRepeatedPassword = findViewById(R.id.repeatPass);
+
+        Button registerButton = (Button) findViewById(R.id.register);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validateCredentials()) {
+                    addUser(inEmail.getText().toString().trim(), inPassword.getText().toString().trim());
+                }
+            }
+        });
+    }
+
+    private boolean validateCredentials() {
+        String email = inEmail.getText().toString().trim();
+        String pass = inPassword.getText().toString().trim();
+        String repeatedPassword = inRepeatedPassword.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email)) {
+            inEmail.setError(getString(R.string.emptyField));
+            return false;
+        }
+        if (TextUtils.isEmpty(pass)) {
+            inPassword.setError(getString(R.string.emptyField));
+            return false;
+        }
+        if (TextUtils.isEmpty(repeatedPassword)) {
+            inRepeatedPassword.setError(getString(R.string.emptyField));
+            return false;
+        }
+        if (!pass.equals(repeatedPassword)) {
+            inRepeatedPassword.setError(getString(R.string.notSamePassword));
+            return false;
+        }
+        return true;
+    }
+
+    private void addUser(String email, String pass) {
+        fAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RegisterActivity.this, getString(R.string.singedUpSuccessfully), Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                } else {
+                    Toast.makeText(RegisterActivity.this, getString(R.string.error) + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void stopIfUserIsLoggedId() {
+        if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
+    }
 
+    public void openLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    private void tryToLogIn() {
         Button loginButton = (Button) findViewById(R.id.login);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,56 +107,5 @@ public class RegisterActivity extends AppCompatActivity {
                 openLoginActivity();
             }
         });
-
-        inEmail = findViewById(R.id.mail);
-        inPassword = findViewById(R.id.pass);
-        inPassword2 = findViewById(R.id.repeatPass);
-
-        Button registerButton = (Button) findViewById(R.id.register);
-
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = inEmail.getText().toString().trim();
-                String pass = inPassword.getText().toString().trim();
-                String pass2 = inPassword2.getText().toString().trim();
-
-                if (TextUtils.isEmpty(email)){
-                    inEmail.setError("Acest câmp este gol");
-                    return;
-                }
-                if ( TextUtils.isEmpty(pass)){
-                    inPassword.setError("Acest câmp este gol");
-                    return;
-                }
-                if ( TextUtils.isEmpty(pass2)){
-                    inPassword2.setError("Acest câmp este gol");
-                    return;
-                }
-                if ( !pass.equals(pass2) ){
-                    inPassword.setError("Parolele diferă");
-                    return;
-                }
-
-                fAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(RegisterActivity.this, "înregistrat cu succes", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), AgreeActivity.class));
-                        }else{
-                            Toast.makeText(RegisterActivity.this, "Eroare "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        });
-
-    }
-
-
-    public void openLoginActivity(){
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
     }
 }

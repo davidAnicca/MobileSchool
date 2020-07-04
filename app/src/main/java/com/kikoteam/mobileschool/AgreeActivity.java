@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 public class AgreeActivity extends AppCompatActivity {
 
@@ -21,13 +22,14 @@ public class AgreeActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    //Toast.makeText(getBaseContext(), getApplicationContext().getResources().getString(R.string.thank), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), getString(R.string.thank), Toast.LENGTH_SHORT).show();
                     openMainActivity();
                 }
             }
         });
 
     }
+
 
     public void openMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);

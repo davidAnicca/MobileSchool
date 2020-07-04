@@ -7,9 +7,14 @@
     <string name="login">Login</string>
     <string name="testText">TestText</string>
     <string name="todo">TODO</string>
+    <string name="logout">Logout</string>
+    <string name="singedUpSuccessfully">înregistrat cu succes</string>
+    <string name="error">Eroare</string>
     <string name="alreadyRegistered">Already singed-up?</string>
     <string name="agree">Sunt de acord</string>
     <string name="conditionsTitle">Termeni și condiții</string>
+    <string name="notSamePassword">Parolele diferă</string>
+    <string name="emptyField">Acest câmp este gol</string>
     <string name="conditions">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Quisque sagittis faucibus consequat. Vestibulum
         ante ipsum primis in faucibusorci luctus et ultrices
