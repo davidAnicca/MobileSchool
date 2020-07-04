@@ -34,9 +34,9 @@ public class RegisterActivity extends AppCompatActivity {
         tryToLogIn();
 
 
-        inEmail = findViewById(R.id.mail);
-        inPassword = findViewById(R.id.pass);
-        inRepeatedPassword = findViewById(R.id.repeatPass);
+        inEmail = findViewById(R.id.registerMail);
+        inPassword = findViewById(R.id.registerPassword);
+        inRepeatedPassword = findViewById(R.id.registerRepeatedPassword);
 
         Button registerButton = (Button) findViewById(R.id.register);
         registerButton.setOnClickListener(new View.OnClickListener() {

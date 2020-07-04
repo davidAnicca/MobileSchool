@@ -9,6 +9,7 @@
     <string name="todo">TODO</string>
     <string name="logout">Logout</string>
     <string name="singedUpSuccessfully">înregistrat cu succes</string>
+    <string name="loggedInSuccessfully">autentificat cu succes</string>
     <string name="error">Eroare</string>
     <string name="alreadyRegistered">Already singed-up?</string>
     <string name="agree">Sunt de acord</string>

@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.0" tools:targetApi="p"/>
 
     <EditText
-        android:id="@+id/mail"
+        android:id="@+id/registerMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -29,12 +29,13 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.016" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/pass"
+        android:id="@+id/registerPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -50,12 +51,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="16dp"
         android:text="@string/pass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/pass"
-        app:layout_constraintTop_toBottomOf="@+id/mail"
+        app:layout_constraintStart_toStartOf="@+id/registerPassword"
+        app:layout_constraintTop_toBottomOf="@+id/registerMail"
         tools:text="@string/pass" />
 
     <TextView
@@ -66,13 +67,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/mail"
+        app:layout_constraintStart_toStartOf="@+id/registerMail"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127"
+        app:layout_constraintVertical_bias="0.272"
         tools:text="@string/mail" />
 
     <EditText
-        android:id="@+id/repeatPass"
+        android:id="@+id/registerRepeatedPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -91,8 +92,8 @@
         android:text="@string/repeatPass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/repeatPass"
-        app:layout_constraintTop_toBottomOf="@+id/pass"
+        app:layout_constraintStart_toStartOf="@+id/registerRepeatedPassword"
+        app:layout_constraintTop_toBottomOf="@+id/registerPassword"
         tools:text="@string/repeatPass" />
 
     <Button
@@ -104,7 +105,7 @@
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repeatPass" tools:targetApi="p"/>
+        app:layout_constraintTop_toBottomOf="@+id/registerRepeatedPassword" tools:targetApi="p"/>
 
     <TextView
         android:id="@+id/textView"
