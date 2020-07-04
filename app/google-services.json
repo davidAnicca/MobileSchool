@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "651268334309",
+    "firebase_url": "https://mobileschool-87243.firebaseio.com",
+    "project_id": "mobileschool-87243",
+    "storage_bucket": "mobileschool-87243.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651268334309:android:0e066c31f5f81026e06a0c",
+        "android_client_info": {
+          "package_name": "com.kikoteam.mobileschool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651268334309-283kmalaj18n1nqq59hdvhr4kt14o5rm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kikoteam.mobileschool",
+            "certificate_hash": "8608d2076ddd5e58138e2fd30a9f5764993a217c"
+          }
+        },
+        {
+          "client_id": "651268334309-ajpp0gsdg21cos0uv14akeg2mjak5o47.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbL8bEeZlj155ZtrqSNeWDPJBD-k-Qem0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651268334309-ajpp0gsdg21cos0uv14akeg2mjak5o47.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

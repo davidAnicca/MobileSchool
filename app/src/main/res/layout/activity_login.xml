@@ -16,7 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/pass"
@@ -28,7 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/button"
@@ -40,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass"
-        app:layout_constraintVertical_bias="0.072" tools:targetApi="p"/>
+        app:layout_constraintVertical_bias="0.072" tools:targetApi="p" />
 
     <TextView
         android:id="@+id/text1"
