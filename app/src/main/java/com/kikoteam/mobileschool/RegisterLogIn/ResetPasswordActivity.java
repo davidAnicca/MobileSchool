@@ -33,7 +33,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
         TextView makeSureYourMailIsGood = findViewById(R.id.makeSureYourMailIsGood);
         makeSureYourMailIsGood.setVisibility(View.INVISIBLE);
-        Button registerButton = findViewById(R.id.resetPassRegisterButton);
+        Button registerButton = findViewById(R.id.restePassRegisterButton);
         registerButton.setVisibility(View.GONE);
     }
 
@@ -90,7 +90,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 TextView makeSureYourMailIsGood = findViewById(R.id.makeSureYourMailIsGood);
                 makeSureYourMailIsGood.setVisibility(View.VISIBLE);
                 sendMailButton.setVisibility(View.VISIBLE);
-                Button registerButton = findViewById(R.id.resetPassRegisterButton);
+                Button registerButton = findViewById(R.id.restePassRegisterButton);
                 registerButton.setVisibility(View.VISIBLE);
                 Toast.makeText(ResetPasswordActivity.this, getString(R.string.error) + ", " + getString(R.string.try_again), Toast.LENGTH_LONG).show();
             }
