@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         fAuth = FirebaseAuth.getInstance();
-        stopIfUserIsLoggedId();
+        stopIfUserIsLoggedIn();
         tryToLogIn();
         ProgressBar progressBar = findViewById(R.id.registerProgressBar);
         progressBar.setVisibility(View.INVISIBLE);
@@ -71,21 +71,25 @@ public class RegisterActivity extends AppCompatActivity {
         String email = inEmail.getText().toString().trim();
         String pass = inPassword.getText().toString().trim();
         String repeatedPassword = inRepeatedPassword.getText().toString().trim();
-
+        ProgressBar progressBar = findViewById(R.id.registerProgressBar);
         if (TextUtils.isEmpty(email)) {
-            inEmail.setError(getString(R.string.emptyField));
+            inEmail.setError(getString(R.string.empty_field));
+            progressBar.setVisibility(View.INVISIBLE);
             return false;
         }
         if (TextUtils.isEmpty(pass)) {
-            inPassword.setError(getString(R.string.emptyField));
+            inPassword.setError(getString(R.string.empty_field));
+            progressBar.setVisibility(View.INVISIBLE);
             return false;
         }
         if (TextUtils.isEmpty(repeatedPassword)) {
-            inRepeatedPassword.setError(getString(R.string.emptyField));
+            inRepeatedPassword.setError(getString(R.string.empty_field));
+            progressBar.setVisibility(View.INVISIBLE);
             return false;
         }
         if (!pass.equals(repeatedPassword)) {
-            inRepeatedPassword.setError(getString(R.string.notSamePassword));
+            inRepeatedPassword.setError(getString(R.string.not_same_password));
+            progressBar.setVisibility(View.INVISIBLE);
             return false;
         }
         return true;
@@ -96,26 +100,29 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(RegisterActivity.this, getString(R.string.singedUpSuccessfully), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, getString(R.string.singed_up_successfully), Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), AgreeActivity.class));
                     finish();
                 } else {
+                    ProgressBar progressBar = findViewById(R.id.registerProgressBar);
+                    progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(RegisterActivity.this, getString(R.string.error) + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    private void stopIfUserIsLoggedId() {
+    private void stopIfUserIsLoggedIn() {
         if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
     }
 
-    public void openLoginActivity() {
+    private void openLoginActivity() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+
     }
 
     private void tryToLogIn() {

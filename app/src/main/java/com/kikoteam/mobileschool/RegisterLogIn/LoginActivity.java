@@ -3,7 +3,6 @@ package com.kikoteam.mobileschool.RegisterLogIn;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -46,11 +45,11 @@ public class LoginActivity extends AppCompatActivity {
         String pass = inPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
-            inEmail.setError(getString(R.string.emptyField));
+            inEmail.setError(getString(R.string.empty_field));
             return false;
         }
         if (TextUtils.isEmpty(pass)) {
-            inPassword.setError(getString(R.string.emptyField));
+            inPassword.setError(getString(R.string.empty_field));
             return false;
         }
         return true;
@@ -68,22 +67,28 @@ public class LoginActivity extends AppCompatActivity {
 
     public void logIn(View view) {
         if (validateCredentials()) {
-            ProgressBar progressBar = findViewById(R.id.loginProgressBar);
+            final ProgressBar progressBar = findViewById(R.id.loginProgressBar);
             hideKeyboard();
             progressBar.setVisibility(View.VISIBLE);
             fAuth.signInWithEmailAndPassword(inEmail.getText().toString().trim(), inPassword.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, getString(R.string.loggedInSuccessfully), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, getString(R.string.logged_in_successfully), Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
                     } else {
+                        progressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(LoginActivity.this, getString(R.string.error) + "\n" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
             });
         }
+    }
+
+    public void openResetPasswordActivity(View view){
+         Intent intent = new Intent(this, ResetPasswordActivity.class);
+         startActivity(intent);
     }
 
 }

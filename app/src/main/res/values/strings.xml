@@ -1,21 +1,22 @@
 <resources>
     <string name="appName">MobileSchool</string>
     <string name="mail">Email</string>
-    <string name="pass">Password</string>
-    <string name="repeatPass">Repeat Password</string>
-    <string name="register">Register</string>
-    <string name="login">Login</string>
-    <string name="testText">TestText</string>
+    <string name="pass">Parolă</string>
+    <string name="repeat_password">Repetă parola</string>
+    <string name="register">înregistrează-te</string>
+    <string name="login">Conectare</string>
     <string name="todo">TODO</string>
-    <string name="logout">Logout</string>
-    <string name="singedUpSuccessfully">înregistrat cu succes</string>
-    <string name="loggedInSuccessfully">autentificat cu succes</string>
+    <string name="logout">Deconectare</string>
+    <string name="singed_up_successfully">înregistrat cu succes</string>
+    <string name="logged_in_successfully">autentificat cu succes</string>
+    <string name="forgotten_password"><u>Ai uitat parola?</u></string>
     <string name="error">Eroare</string>
-    <string name="alreadyRegistered">Already singed-up?</string>
+    <string name="already_registered">Deja înregistrat?</string>
     <string name="agree">Sunt de acord</string>
-    <string name="conditionsTitle">Termeni și condiții</string>
-    <string name="notSamePassword">Parolele diferă</string>
-    <string name="emptyField">Acest câmp este gol</string>
+    <string name="conditions_title">Termeni și condiții</string>
+    <string name="not_same_password">Parolele diferă</string>
+    <string name="try_again">încearcă din nou</string>
+    <string name="empty_field">Acest câmp este gol</string>
     <string name="conditions">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Quisque sagittis faucibus consequat. Vestibulum
         ante ipsum primis in faucibusorci luctus et ultrices
@@ -32,5 +33,8 @@
         Mauris eget orci et dolor facilisis efficitur.
         Nunc nec facilisis turpis, imperdiet suscipit risus.</string>
     <string name="thank">Mulțumim</string>
+    <string name="send_reset_email">trimite email de resetare</string>
+    <string name="mail_to_reset_sent">Am trimis un email pentru resetarea parolei</string>
+    <string name="make_sure_you_have_an_account">Asigură-te că ai introdus adresa corectă și că ești cu siguranță conectat la noi cu aceasta</string>
 </resources>
 
