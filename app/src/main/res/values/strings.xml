@@ -36,5 +36,6 @@
     <string name="send_reset_email">trimite email de resetare</string>
     <string name="mail_to_reset_sent">Am trimis un email pentru resetarea parolei</string>
     <string name="make_sure_you_have_an_account">Asigură-te că ai introdus adresa corectă și că ești cu siguranță conectat la noi cu aceasta</string>
+    <string name="image">imagine</string>
 </resources>
 
