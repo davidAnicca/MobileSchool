@@ -17,11 +17,11 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079"
+        app:layout_constraintVertical_bias="0.325"
         tools:visibility="visible" />
 
     <ImageView
-        android:id="@+id/base"
+        android:id="@+id/finalForm"
         android:layout_width="352dp"
         android:layout_height="272dp"
         android:visibility="visible"
@@ -41,8 +41,8 @@
         android:layout_marginTop="59dp"
         android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/base"
-        app:layout_constraintTop_toBottomOf="@+id/base"
+        app:layout_constraintStart_toStartOf="@+id/finalForm"
+        app:layout_constraintTop_toBottomOf="@+id/finalForm"
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
@@ -54,14 +54,14 @@
                 android:id="@+id/eyes1"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:onClick="selectOption"
+                android:onClick="selectEyes"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageView
                 android:id="@+id/eyes2"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
-                android:onClick="selectOption"
+                android:onClick="selectEyes"
                 tools:srcCompat="@tools:sample/avatars" />
         </LinearLayout>
     </ScrollView>
@@ -69,7 +69,7 @@
     <ScrollView
         android:layout_width="166dp"
         android:layout_height="227dp"
-        app:layout_constraintEnd_toEndOf="@+id/base"
+        app:layout_constraintEnd_toEndOf="@+id/finalForm"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/scrollView2"
         app:layout_constraintTop_toTopOf="@+id/scrollView2">
@@ -83,14 +83,14 @@
                 android:id="@+id/mouth1"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:onClick="selectOption"
+                android:onClick="selectMouth"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageView
                 android:id="@+id/mouth2"
                 android:layout_width="match_parent"
                 android:layout_height="66dp"
-                android:onClick="selectOption"
+                android:onClick="selectMouth"
                 tools:srcCompat="@tools:sample/avatars" />
         </LinearLayout>
     </ScrollView>
