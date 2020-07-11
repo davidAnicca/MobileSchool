@@ -1,10 +1,12 @@
 package com.kikoteam.mobileschool.avatar;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.graphics.*;
 import android.view.View;
@@ -22,6 +24,8 @@ public class ImageMerger extends AppCompatActivity {
     Avatar avatar = Avatar.getInstance();
     ProgressBar progressBar;
     ImageView finalForm;
+    ImageView lastEyeSelected;
+    ImageView lastMouthSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,8 @@ public class ImageMerger extends AppCompatActivity {
         finalForm.setImageResource(R.drawable.square_base_388c91);
         selectBase();
 
+        lastEyeSelected = null;
+        lastMouthSelected = null;
 
         progressBar = findViewById(R.id.progressForMerge);
         progressBar.setVisibility(View.VISIBLE);
@@ -56,15 +62,19 @@ public class ImageMerger extends AppCompatActivity {
     public void showOptions() {
         ImageView imageOption1 = findViewById(R.id.eyes1);
         imageOption1.setImageBitmap(this.options.get(0));
+        imageOption1.setBackgroundColor(Color.CYAN);
 
         ImageView imageOption2 = findViewById(R.id.eyes2);
         imageOption2.setImageBitmap(this.options.get(1));
+        imageOption2.setBackgroundColor(Color.CYAN);
 
         ImageView imageOption3 = findViewById(R.id.mouth1);
         imageOption3.setImageBitmap(this.options.get(2));
+        imageOption3.setBackgroundColor(Color.CYAN);
 
         ImageView imageOption4 = findViewById(R.id.mouth2);
         imageOption4.setImageBitmap(this.options.get(3));
+        imageOption4.setBackgroundColor(Color.CYAN);
         ///ADD OPTIONS HERE
     }
 
@@ -110,7 +120,14 @@ public class ImageMerger extends AppCompatActivity {
         avatar.setFinalForm(avatar.getBase());
     }
 
+
     public void selectEyes(View view) {
+        if ( lastEyeSelected != null )
+            lastEyeSelected.setBackgroundColor(Color.CYAN);
+
+        view.setBackgroundColor(Color.LTGRAY);
+        lastEyeSelected = (ImageView) view;
+
         this.finalForm.setVisibility(View.GONE);
         avatar.setEyes(getBitmapFromView(view));
         rebuild();
@@ -118,6 +135,13 @@ public class ImageMerger extends AppCompatActivity {
     }
 
     public void selectMouth(View view) {
+
+        if ( lastMouthSelected != null)
+            lastMouthSelected.setBackgroundColor(Color.CYAN);
+
+        view.setBackgroundColor(Color.LTGRAY);
+        lastMouthSelected = (ImageView) view;
+
         this.finalForm.setVisibility(View.GONE);
         avatar.setMouth(getBitmapFromView(view));
         rebuild();
