@@ -41,7 +41,7 @@ public class BaseSelector extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void selectBase(View view){
+    public void selectOption(View view){
 
         avatar.setBase(ImageProcessor.getBitmapFromView(view));
         avatar.rebuild();

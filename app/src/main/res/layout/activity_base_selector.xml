@@ -35,14 +35,14 @@
                 android:id="@+id/baseSelectorOption1"
                 android:layout_width="match_parent"
                 android:layout_height="109dp"
-                android:onClick="selectBase"
+                android:onClick="selectOption"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageView
                 android:id="@+id/baseSelectorOption2"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                android:onClick="selectBase"
+                android:onClick="selectOption"
                 tools:srcCompat="@tools:sample/avatars" />
 
         </LinearLayout>
