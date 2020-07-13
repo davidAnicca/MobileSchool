@@ -9,6 +9,7 @@ import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
 import com.kikoteam.mobileschool.RegisterLogIn.RegisterActivity;
 import com.kikoteam.mobileschool.RegisterLogIn.ResetPasswordActivity;
+import com.kikoteam.mobileschool.avatar.BaseSelector;
 import com.kikoteam.mobileschool.avatar.ImageMerger;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void startImageMerger(View view){
-        Intent intent = new Intent(this, ImageMerger.class);
+    public void startAvatarCreator(View view){
+        Intent intent = new Intent(this, BaseSelector.class);
         startActivity(intent);
     }
 

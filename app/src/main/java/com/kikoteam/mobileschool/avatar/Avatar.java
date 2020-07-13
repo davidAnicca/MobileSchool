@@ -4,28 +4,43 @@ import android.graphics.Bitmap;
 
 public class Avatar {
 
+    private Bitmap base;
+    private Bitmap eyes;
+    private Bitmap mouth;
+    private Bitmap hair;
+    private Bitmap finalForm;
 
+    ///singleton instance
     private static Avatar instance = null;
 
-    private Avatar(){
+    private Avatar() {
         base = null;
         eyes = null;
         mouth = null;
+        hair = null;
         finalForm = null;
     }
 
-    public static Avatar getInstance(){
-        if ( instance == null ){
+    public static Avatar getInstance() {
+        if (instance == null) {
             instance = new Avatar();
         }
         return instance;
     }
 
+    public void rebuild() {
+        this.finalForm = this.base;
 
-    public Bitmap base;
-    public Bitmap eyes;
-    public Bitmap mouth;
-    public Bitmap finalForm;
+        if (this.eyes != null)
+            this.finalForm = ImageProcessor.imageMerger(this.finalForm, this.eyes);
+
+        if (this.mouth != null)
+            this.finalForm = ImageProcessor.imageMerger(this.finalForm, this.mouth);
+
+        if (this.hair != null)
+            this.finalForm = ImageProcessor.imageMerger(this.finalForm, this.hair);
+
+    }
 
     public Bitmap getBase() {
         return base;
