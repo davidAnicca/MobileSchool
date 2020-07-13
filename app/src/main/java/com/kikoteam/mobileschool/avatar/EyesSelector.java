@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import com.kikoteam.mobileschool.R;
 public class EyesSelector extends AppCompatActivity {
 
     Avatar avatar;
+    private View lastSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,7 @@ public class EyesSelector extends AppCompatActivity {
         setContentView(R.layout.activity_eyes_selector);
 
         avatar = Avatar.getInstance();
-
+        lastSelected = null;
         ImageView finalForm = findViewById(R.id.eyesSelectorFinalForm);
         finalForm.setImageBitmap(avatar.getFinalForm());
 
@@ -28,20 +30,24 @@ public class EyesSelector extends AppCompatActivity {
 
     }
 
-    private void showOptions(){
+    private void showOptions() {
         ImageView option1 = findViewById(R.id.eyesSelectorOption1);
         option1.setImageBitmap(BitmapFactory.decodeResource(EyesSelector.this.getResources(), R.drawable.eyes_60901b));
         ImageView option2 = findViewById(R.id.eyesSelectorOption2);
         option2.setImageBitmap(BitmapFactory.decodeResource(EyesSelector.this.getResources(), R.drawable.eyes_384f90));
     }
 
-    public void nextSelector(View view){
+    public void nextSelector(View view) {
         Intent intent = new Intent(this, MouthSelector.class);
         startActivity(intent);
     }
 
-    public void selectOption(View view){
+    public void selectOption(View view) {
 
+        if (lastSelected != null)
+            lastSelected.setBackgroundColor(Color.TRANSPARENT);
+        view.setBackgroundColor(Color.LTGRAY);
+        lastSelected = view;
         avatar.setEyes(ImageProcessor.getBitmapFromView(view));
         avatar.rebuild();
         ImageView finalForm = findViewById(R.id.eyesSelectorFinalForm);

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,12 +14,14 @@ import com.kikoteam.mobileschool.R;
 public class HairSelector extends AppCompatActivity {
 
     Avatar avatar;
+    private View lastSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hair_selector);
 
+        lastSelected = null;
         avatar = Avatar.getInstance();
 
         ImageView finalForm = findViewById(R.id.hairSelectorFinalForm);
@@ -40,6 +43,10 @@ public class HairSelector extends AppCompatActivity {
     }
 
     public void selectOption(View view) {
+        if (lastSelected != null)
+            lastSelected.setBackgroundColor(Color.TRANSPARENT);
+        view.setBackgroundColor(Color.LTGRAY);
+        lastSelected = view;
         avatar.setHair(ImageProcessor.getBitmapFromView(view));
         avatar.rebuild();
         ImageView finalForm = findViewById(R.id.hairSelectorFinalForm);
