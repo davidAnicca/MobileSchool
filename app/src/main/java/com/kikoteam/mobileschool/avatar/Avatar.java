@@ -28,6 +28,14 @@ public class Avatar {
         return instance;
     }
 
+    public Bitmap getHair() {
+        return hair;
+    }
+
+    public void setHair(Bitmap hair) {
+        this.hair = hair;
+    }
+
     public void rebuild() {
         this.finalForm = this.base;
 
