@@ -1,5 +1,5 @@
 <resources>
-    <string name="appName">MobileSchool</string>
+    <string name="appName">Byte-School</string>
     <string name="mail">Email</string>
     <string name="pass">Parolă</string>
     <string name="repeat_password">Repetă parola</string>
