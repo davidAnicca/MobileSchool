@@ -4,23 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pastel_yellow"
     android:clickable="true"
     android:onClick="openResetPasswordActivity">
 
     <Button
         android:id="@+id/LogIn"
         style="@android:style/Widget.DeviceDefault.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="118dp"
+        android:layout_height="49dp"
         android:layout_marginTop="72dp"
+        android:background="@drawable/diamond"
         android:onClick="logIn"
         android:text="@string/login"
+        android:textColor="#6576D5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginPassword"
-        app:layout_constraintVertical_bias="0.089"
+        app:layout_constraintVertical_bias="0.088"
         tools:targetApi="p" />
 
     <TextView
