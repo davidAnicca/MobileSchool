@@ -27,9 +27,10 @@ public class SaveAvatar extends AppCompatActivity {
     }
 
     public void saveAvatar(View view){
-        Intent intent = new Intent(this, AvatarToStorage.class);
+        SavingProcessor.saveAvatar();
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
+        finish();
     }
 
 }

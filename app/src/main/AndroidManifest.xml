@@ -12,13 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".avatar.AvatarToStorage"></activity>
         <activity android:name=".avatar.SaveAvatar" />
         <activity android:name=".avatar.HairSelector" />
         <activity android:name=".avatar.MouthSelector" />
         <activity android:name=".avatar.EyesSelector" />
         <activity android:name=".avatar.BaseSelector" />
-        <activity android:name=".avatar.ImageMerger" />
         <activity android:name=".RegisterLogIn.ResetPasswordActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

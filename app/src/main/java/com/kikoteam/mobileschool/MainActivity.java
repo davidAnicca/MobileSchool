@@ -8,9 +8,7 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.kikoteam.mobileschool.RegisterLogIn.RegisterActivity;
-import com.kikoteam.mobileschool.RegisterLogIn.ResetPasswordActivity;
 import com.kikoteam.mobileschool.avatar.BaseSelector;
-import com.kikoteam.mobileschool.avatar.ImageMerger;
 
 public class MainActivity extends AppCompatActivity {
 
