@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.kikoteam.mobileschool.R;
 
@@ -45,6 +46,10 @@ public class BaseSelector extends AppCompatActivity {
     }
 
     public void selectOption(View view) {
+
+        TextView text = findViewById(R.id.url);
+
+
 
         if (lastSelected != null)
             lastSelected.setBackgroundColor(Color.TRANSPARENT);
