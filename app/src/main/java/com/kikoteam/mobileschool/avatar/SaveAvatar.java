@@ -27,8 +27,7 @@ public class SaveAvatar extends AppCompatActivity {
     }
 
     public void saveAvatar(View view){
-        ///save avatar entity on database
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, AvatarToStorage.class);
         startActivity(intent);
 
     }

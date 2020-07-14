@@ -9,6 +9,15 @@ public class Avatar {
     private Bitmap mouth;
     private Bitmap hair;
     private Bitmap finalForm;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     ///singleton instance
     private static Avatar instance = null;
