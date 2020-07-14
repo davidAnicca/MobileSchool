@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pastel_yellow"
+    android:background="@drawable/background2"
     android:clickable="true"
     android:onClick="openResetPasswordActivity">
 
@@ -30,11 +30,12 @@
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="175dp"
         android:text="@string/mail"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/loginMail"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/loginMail"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,9 +43,10 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="148dp"
         android:text="@string/pass"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/loginPassword"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/loginPassword"
@@ -57,6 +59,7 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1" />
@@ -68,6 +71,7 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -89,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/forgotten_password"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
