@@ -17,9 +17,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.kikoteam.mobileschool.Initializer;
 import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
+import com.kikoteam.mobileschool.avatar.Avatar;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -102,6 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(RegisterActivity.this, getString(R.string.singed_up_successfully), Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), AgreeActivity.class));
+                    saveEmptyAvatarUrl();
                     finish();
                 } else {
                     ProgressBar progressBar = findViewById(R.id.registerProgressBar);
@@ -114,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void stopIfUserIsLoggedIn() {
         if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), Initializer.class));
             finish();
         }
     }
@@ -133,5 +141,17 @@ public class RegisterActivity extends AppCompatActivity {
                 openLoginActivity();
             }
         });
+    }
+
+    private static void saveEmptyAvatarUrl() {
+        Avatar avatar = Avatar.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        Map<String, String> url = new HashMap<>();
+        url.put("userID", user.getUid());
+        url.put("Avatar url", "empty");
+        CollectionReference urls = db.collection("users");
+        urls.document(user.getUid()).set(url);
     }
 }

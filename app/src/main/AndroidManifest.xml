@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Initializer"></activity>
         <activity android:name=".avatar.SaveAvatar" />
         <activity android:name=".avatar.HairSelector" />
         <activity android:name=".avatar.MouthSelector" />

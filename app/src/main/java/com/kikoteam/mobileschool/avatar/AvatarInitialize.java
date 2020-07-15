@@ -19,8 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 
-public class AvatarInitialize  {
-
+public class AvatarInitialize {
 
 
     public static void initialize() {
@@ -33,7 +32,7 @@ public class AvatarInitialize  {
         avatar.setHair(null);
         avatar.setUrl(null);
         avatar.setFinalForm(null);
-        getAvatarUrl();
+
 
     }
 
@@ -50,8 +49,6 @@ public class AvatarInitialize  {
                             Avatar avatar = Avatar.getInstance();
                             String url = (String) data.get("Avatar url");
                             avatar.setUrl(url);
-
-
                         }
                     }
 
@@ -80,5 +77,12 @@ public class AvatarInitialize  {
         }
     }
 
+    private class ImageDownloader extends AsyncTask<String, Integer, Bitmap>{
+
+        @Override
+        protected Bitmap doInBackground(String... strings) {
+            return null;
+        }
+    }
 
 }

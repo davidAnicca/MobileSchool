@@ -38,7 +38,7 @@ public class SavingProcessor {
 
         final StorageReference ref = mStorageRef.child("avatars/" + user.getUid() + ".png");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 20, baos);
         byte[] data = baos.toByteArray();
 
         final UploadTask uploadTask = ref.putBytes(data);

@@ -3,18 +3,22 @@ package com.kikoteam.mobileschool;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.kikoteam.mobileschool.RegisterLogIn.RegisterActivity;
+import com.kikoteam.mobileschool.avatar.Avatar;
 import com.kikoteam.mobileschool.avatar.AvatarInitialize;
 import com.kikoteam.mobileschool.avatar.BaseSelector;
 
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth fAuth;
-
+    ImageView seeAvatarImage;
+    Button seeAvatarButton;
 
 
     @Override
@@ -24,7 +28,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if ( !Application.getInstance().isInitialized())
+            initialize();
+
+        seeAvatarButton = findViewById(R.id.mainSeeAvatarButton);
+        seeAvatarImage = findViewById(R.id.mainAvatarImage);
+
+        seeAvatarImage.setVisibility(View.GONE);
+        seeAvatarButton.setVisibility(View.GONE);
+
+        if (Avatar.getInstance().getFinalForm() != null && !Avatar.getInstance().getUrl().equals("empty")){
+            seeAvatarImage.setVisibility(View.VISIBLE);
+            seeAvatarButton.setVisibility(View.VISIBLE);
+        }
+
         fAuth = FirebaseAuth.getInstance();
+
 
 
         if (fAuth.getCurrentUser() == null) {
@@ -32,44 +51,15 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
-        ///AvatarInitialize.initialize();
+
 
     }
 
- /*/
-    public void getAvatarUrl(){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        DocumentReference documentReference = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        documentReference.get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if ( documentSnapshot.exists()){
-                            Map<String, Object> data = documentSnapshot.getData();
-                            assert data != null;
-                            String text = (String) data.get("userID");
-                            Avatar.getInstance().setUrl(text);
-                            texttest = text;
-                            Toast toast = Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG);
-                            toast.show();
-                        }
-                    }
-
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast toast = Toast.makeText(MainActivity.this, "failed", Toast.LENGTH_LONG);
-                        toast.show();
-                    }
-                });
-
+    public void initialize(){
+        Intent intent = new Intent(this, Initializer.class);
+        startActivity(intent);
+        finish();
     }
-
-  */
-
-
 
     public void logOut(View view){
         FirebaseAuth.getInstance().signOut();
@@ -80,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
     public void startAvatarCreator(View view){
         Intent intent = new Intent(this, BaseSelector.class);
         startActivity(intent);
+    }
+
+    public void seeAvatar ( View view ){
+            seeAvatarImage.setImageBitmap(Avatar.getInstance().getFinalForm());
+            seeAvatarButton.setVisibility(View.GONE);
     }
 
 }
