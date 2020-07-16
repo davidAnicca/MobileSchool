@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.kikoteam.mobileschool.RegisterLogIn.RegisterActivity;
 import com.kikoteam.mobileschool.avatar.Avatar;
-import com.kikoteam.mobileschool.avatar.AvatarInitialize;
 import com.kikoteam.mobileschool.avatar.BaseSelector;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,15 +42,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         fAuth = FirebaseAuth.getInstance();
-
-
-
         if (fAuth.getCurrentUser() == null) {
             startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             finish();
         }
-
-
 
     }
 
@@ -64,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     public void logOut(View view){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+        Avatar.getInstance().setFinalForm(null);
+        Avatar.getInstance().setUrl("empty");
         finish();
     }
 

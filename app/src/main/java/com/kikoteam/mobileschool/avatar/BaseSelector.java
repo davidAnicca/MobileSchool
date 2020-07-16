@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,12 +17,15 @@ public class BaseSelector extends AppCompatActivity {
 
     Avatar avatar;
     private View lastSelected;
+    Button nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_selector);
 
+        nextButton = findViewById(R.id.baseSelectorNext);
+        nextButton.setVisibility(View.GONE);
         lastSelected = null;
         avatar = Avatar.getInstance();
         if (avatar.getBase() != null) {
@@ -47,10 +51,7 @@ public class BaseSelector extends AppCompatActivity {
 
     public void selectOption(View view) {
 
-        TextView text = findViewById(R.id.url);
-
-
-
+        nextButton.setVisibility(View.VISIBLE);
         if (lastSelected != null)
             lastSelected.setBackgroundColor(Color.TRANSPARENT);
         view.setBackgroundColor(Color.LTGRAY);

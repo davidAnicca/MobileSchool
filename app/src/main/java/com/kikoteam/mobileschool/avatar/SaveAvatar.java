@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
@@ -13,6 +14,8 @@ import com.kikoteam.mobileschool.R;
 public class SaveAvatar extends AppCompatActivity {
 
     Avatar avatar;
+    ProgressBar mProgressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +29,8 @@ public class SaveAvatar extends AppCompatActivity {
 
     }
 
-    public void saveAvatar(View view){
-        SavingProcessor.saveAvatar();
+    public void saveAvatar(View view) {
+        new SavingProcessor().execute();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

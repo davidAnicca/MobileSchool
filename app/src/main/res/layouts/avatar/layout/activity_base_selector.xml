@@ -48,23 +48,19 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <Button
         android:id="@+id/baseSelectorNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="94dp"
+        android:layout_width="55dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="275dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="#FFFFFF"
-        android:clickable="true"
         android:onClick="nextSelector"
-        android:src="@drawable/ok"
+        android:text="@android:string/ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/baseSelectorOptionScroll"
-        app:layout_constraintTop_toBottomOf="@+id/baseSelectorFinalForm"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/baseSelectorOptionScroll" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

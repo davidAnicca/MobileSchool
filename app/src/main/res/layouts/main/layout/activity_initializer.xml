@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/app_logo"
     tools:context=".Initializer">
+
+    <ImageView
+        android:id="@+id/backgroundInit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/background2"
+        tools:srcCompat="@drawable/background2" />
 
     <ProgressBar
         android:id="@+id/initializeProgressBar"
@@ -20,11 +31,15 @@
 
     <ImageView
         android:id="@+id/avatarInitialize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="247dp"
+        android:layout_height="367dp"
         app:layout_constraintBottom_toTopOf="@+id/initializeProgressBar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo_final"
+        tools:srcCompat="@drawable/logo_final" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

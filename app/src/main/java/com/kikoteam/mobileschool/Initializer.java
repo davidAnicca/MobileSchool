@@ -3,7 +3,6 @@ package com.kikoteam.mobileschool;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,7 +11,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,14 +19,12 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.kikoteam.mobileschool.avatar.Avatar;
-import com.kikoteam.mobileschool.avatar.AvatarInitialize;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.BitSet;
 import java.util.Map;
 
 public class Initializer extends AppCompatActivity {
@@ -51,8 +47,8 @@ public class Initializer extends AppCompatActivity {
         initializeProgressBarr.setVisibility(View.VISIBLE);
         avatarFinalForm = findViewById(R.id.avatarInitialize);
 
-
-        AvatarInitialize.initialize();
+        Avatar.resetInstance();
+        Avatar.getInstance();
         getAvatarImageUrl();
 
 
@@ -63,7 +59,7 @@ public class Initializer extends AppCompatActivity {
         task.execute(Avatar.getInstance().getUrl());
     }
 
-    private void exitInitializer(){
+    private void exitInitializer() {
         Application.getInstance().setInitialized(true);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -120,7 +116,7 @@ public class Initializer extends AppCompatActivity {
     private void getAvatarImageUrl() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        DocumentReference documentReference = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        DocumentReference documentReference = db.collection("avatars").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
         documentReference.get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -132,8 +128,9 @@ public class Initializer extends AppCompatActivity {
                             avatar.setUrl(url);
                             if (!url.equals("empty"))
                                 downloadProcess();
-                        } else {
-                            Avatar.getInstance().setUrl("empty");
+                            else exitInitializer();
+                        }else{
+                            exitInitializer();
                         }
                     }
 
@@ -147,12 +144,6 @@ public class Initializer extends AppCompatActivity {
                     }
                 });
 
-    }
-
-    private void startMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
 }

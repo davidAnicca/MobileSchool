@@ -2,13 +2,14 @@ package com.kikoteam.mobileschool.avatar;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.widget.Toast;
+import android.os.AsyncTask;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,12 +24,13 @@ import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SavingProcessor {
+public class SavingProcessor extends AsyncTask<Void, Void, Void> {
 
 
-    public static void saveAvatar() {
-        Avatar avatar = Avatar.getInstance();
-        uploadImage(avatar.getFinalForm());
+    @Override
+    protected Void doInBackground(Void... voids) {
+        uploadImage(Avatar.getInstance().getFinalForm());
+        return null;
     }
 
     private static void uploadImage(Bitmap bitmap) {
@@ -37,9 +39,9 @@ public class SavingProcessor {
         final Avatar avatar = Avatar.getInstance();
 
         final StorageReference ref = mStorageRef.child("avatars/" + user.getUid() + ".png");
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 20, baos);
-        byte[] data = baos.toByteArray();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 20, byteArrayOutputStream);
+        byte[] data = byteArrayOutputStream.toByteArray();
 
         final UploadTask uploadTask = ref.putBytes(data);
         uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -71,12 +73,14 @@ public class SavingProcessor {
     private static void saveUrl() {
         Avatar avatar = Avatar.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseFirestore  db = FirebaseFirestore.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, String> url = new HashMap<>();
         url.put("userID", user.getUid());
         url.put("Avatar url", avatar.getUrl());
-        CollectionReference urls = db.collection("users");
+        CollectionReference urls = db.collection("avatars");
         urls.document(user.getUid()).set(url);
     }
+
+
 }

@@ -28,6 +28,7 @@ public class Avatar {
         mouth = null;
         hair = null;
         finalForm = null;
+        url = "empty";
     }
 
     public static Avatar getInstance() {
@@ -35,6 +36,10 @@ public class Avatar {
             instance = new Avatar();
         }
         return instance;
+    }
+
+    public static void resetInstance(){
+        instance = null;
     }
 
     public Bitmap getHair() {

@@ -109,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(RegisterActivity.this, getString(R.string.singed_up_successfully), Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), AgreeActivity.class));
-                    saveEmptyAvatarUrl();
+                    RegisterProcessor.processRegister();
                     finish();
                 } else {
                     ProgressBar progressBar = findViewById(R.id.registerProgressBar);
@@ -143,15 +143,4 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private static void saveEmptyAvatarUrl() {
-        Avatar avatar = Avatar.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        Map<String, String> url = new HashMap<>();
-        url.put("userID", user.getUid());
-        url.put("Avatar url", "empty");
-        CollectionReference urls = db.collection("users");
-        urls.document(user.getUid()).set(url);
-    }
 }
