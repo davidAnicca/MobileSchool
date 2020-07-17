@@ -3,13 +3,18 @@ package com.kikoteam.mobileschool.avatar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
+
+import java.lang.ref.WeakReference;
 
 public class SaveAvatar extends AppCompatActivity {
 
@@ -22,6 +27,8 @@ public class SaveAvatar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_avatar);
 
+        mProgressBar = findViewById(R.id.saveProgressBar);
+        mProgressBar.setVisibility(View.INVISIBLE);
         avatar = Avatar.getInstance();
 
         ImageView finalForm = findViewById(R.id.saveAvatarFinalForm);
@@ -30,10 +37,51 @@ public class SaveAvatar extends AppCompatActivity {
     }
 
     public void saveAvatar(View view) {
-        new SavingProcessor().execute();
+            new BackgroundGateToSavingProcessor(this).execute();
+    }
+
+    public void startMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private static class BackgroundGateToSavingProcessor extends AsyncTask<Void, Void, Void>{
+        private WeakReference<SaveAvatar> activityWeakReference;
+
+        BackgroundGateToSavingProcessor(SaveAvatar activity){
+            activityWeakReference = new WeakReference<SaveAvatar>(activity);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            SaveAvatar activity = activityWeakReference.get();
+            if ( activity == null || activity.isFinishing())
+                return;
+
+            activity.mProgressBar.setVisibility(View.VISIBLE);
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            SavingProcessor.uploadImage(Avatar.getInstance().getFinalForm());
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            SaveAvatar activity = activityWeakReference.get();
+            if ( activity == null || activity.isFinishing())
+                return;
+
+
+            activity.mProgressBar.setVisibility(View.INVISIBLE);
+            activity.startMainActivity();
+
+        }
     }
 
 }
