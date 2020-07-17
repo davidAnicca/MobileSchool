@@ -1,4 +1,5 @@
 <resources>
     <string name="new_avatar">crează un avatar nou</string>
     <string name="see_avatar">vezi avatar</string>
+    <string name="skip">sari</string>
 </resources>

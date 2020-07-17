@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
 
 public class BaseSelector extends AppCompatActivity {
@@ -35,6 +36,11 @@ public class BaseSelector extends AppCompatActivity {
 
         showOptions();
 
+    }
+
+    public void skip (View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     private void showOptions() {

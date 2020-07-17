@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.kikoteam.mobileschool.Initializer;
 import com.kikoteam.mobileschool.R;
+import com.kikoteam.mobileschool.avatar.BaseSelector;
 
 public class AgreeActivity extends AppCompatActivity {
 
@@ -34,7 +35,7 @@ public class AgreeActivity extends AppCompatActivity {
     }
 
     public void openNextActivity(){
-        Intent intent = new Intent(this, Initializer.class);
+        Intent intent = new Intent(this, BaseSelector.class);
         startActivity(intent);
     }
 }
