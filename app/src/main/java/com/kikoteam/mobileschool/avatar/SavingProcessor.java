@@ -23,10 +23,15 @@ import java.util.Objects;
 
 public class SavingProcessor  {
 
+    static String userID;
+
     public static void uploadImage(Bitmap bitmap) {
+
+        userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
 
-        final StorageReference ref = mStorageRef.child("avatars/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + ".png");
+        final StorageReference ref = mStorageRef.child("avatars/" + userID + ".png");
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 20, byteArrayOutputStream);
         byte[] data = byteArrayOutputStream.toByteArray();
@@ -64,10 +69,10 @@ public class SavingProcessor  {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, String> url = new HashMap<>();
-        url.put("userID", FirebaseAuth.getInstance().getCurrentUser().getUid());
+        url.put("userID", userID);
         url.put("Avatar url", avatar.getUrl());
         CollectionReference urls = db.collection("avatars");
-        urls.document(FirebaseAuth.getInstance().getCurrentUser().getUid()).set(url);
+        urls.document(userID).set(url);
     }
 
 

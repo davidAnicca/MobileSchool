@@ -39,7 +39,15 @@ public class MouthSelector extends AppCompatActivity {
     }
 
     public void nextSelector(View view) {
+        view.setVisibility(View.GONE);
         Intent intent = new Intent(this, HairSelector.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void previousSelector(View view){
+        view.setVisibility(View.GONE);
+        Intent intent = new Intent(this, EyesSelector.class);
         startActivity(intent);
         finish();
     }

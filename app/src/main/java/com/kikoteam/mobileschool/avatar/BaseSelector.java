@@ -50,6 +50,8 @@ public class BaseSelector extends AppCompatActivity {
         option2.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.square_base_e2152d));
     }
 
+
+
     public void nextSelector(View view) {
         view.setVisibility(View.GONE);
         finish();

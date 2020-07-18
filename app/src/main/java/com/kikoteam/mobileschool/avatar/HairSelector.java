@@ -38,7 +38,15 @@ public class HairSelector extends AppCompatActivity {
     }
 
     public void nextSelector(View view) {
+        view.setVisibility(View.GONE);
         Intent intent = new Intent(this, SaveAvatar.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void previousSelector(View view){
+        view.setVisibility(View.GONE);
+        Intent intent = new Intent(this, MouthSelector.class);
         startActivity(intent);
         finish();
     }

@@ -37,12 +37,20 @@ public class SaveAvatar extends AppCompatActivity {
     }
 
     public void saveAvatar(View view) {
+        findViewById(R.id.saveAvatarBack).setVisibility(View.GONE);
         view.setVisibility(View.INVISIBLE);
         new BackgroundGateToSavingProcessor(this).execute();
     }
 
     public void startMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void backSelector (View view) {
+        view.setVisibility(View.GONE);
+        Intent intent = new Intent(this, HairSelector.class);
         startActivity(intent);
         finish();
     }

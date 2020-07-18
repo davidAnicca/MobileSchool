@@ -79,10 +79,18 @@ public class EyesSelector extends AppCompatActivity {
             activity.eyesSelectorFinalForm.setImageBitmap(finalForm);
             return null;
         }
-
     }
 
+    public void previousSelector(View view){
+        view.setVisibility(View.GONE);
+        Intent intent = new Intent(this, BaseSelector.class);
+        startActivity(intent);
+        finish();
+    }
+
+
     public void nextSelector(View view) {
+        view.setVisibility(View.GONE);
         Intent intent = new Intent(this, MouthSelector.class);
         startActivity(intent);
         finish();
