@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".avatar.EyesSelector">
 
+    <Button
+        android:id="@+id/eyesSelectorNext"
+        android:layout_width="55dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="275dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="nextSelector"
+        android:text="@android:string/ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/eyesSelectorOptionScroll"
+        app:layout_constraintTop_toTopOf="@+id/eyesSelectorOptionScroll"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ImageView
         android:id="@+id/eyesSelectorFinalForm"
         android:layout_width="231dp"
@@ -47,22 +64,5 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/eyesSelectorNext"
-        android:layout_width="55dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="275dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
-        android:onClick="nextSelector"
-        android:text="@android:string/ok"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/eyesSelectorOptionScroll"
-        app:layout_constraintTop_toTopOf="@+id/eyesSelectorOptionScroll"
-        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

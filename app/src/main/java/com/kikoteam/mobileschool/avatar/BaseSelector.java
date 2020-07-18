@@ -51,8 +51,11 @@ public class BaseSelector extends AppCompatActivity {
     }
 
     public void nextSelector(View view) {
+        view.setVisibility(View.GONE);
+        finish();
         Intent intent = new Intent(this, EyesSelector.class);
         startActivity(intent);
+
     }
 
     public void selectOption(View view) {

@@ -37,26 +37,27 @@ public class SaveAvatar extends AppCompatActivity {
     }
 
     public void saveAvatar(View view) {
-            new BackgroundGateToSavingProcessor(this).execute();
+        view.setVisibility(View.INVISIBLE);
+        new BackgroundGateToSavingProcessor(this).execute();
     }
 
-    public void startMainActivity(){
+    public void startMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private static class BackgroundGateToSavingProcessor extends AsyncTask<Void, Void, Void>{
+    private static class BackgroundGateToSavingProcessor extends AsyncTask<Void, Void, Void> {
         private WeakReference<SaveAvatar> activityWeakReference;
 
-        BackgroundGateToSavingProcessor(SaveAvatar activity){
+        BackgroundGateToSavingProcessor(SaveAvatar activity) {
             activityWeakReference = new WeakReference<SaveAvatar>(activity);
         }
 
         @Override
         protected void onPreExecute() {
             SaveAvatar activity = activityWeakReference.get();
-            if ( activity == null || activity.isFinishing())
+            if (activity == null || activity.isFinishing())
                 return;
 
             activity.mProgressBar.setVisibility(View.VISIBLE);
@@ -74,7 +75,7 @@ public class SaveAvatar extends AppCompatActivity {
             super.onPostExecute(aVoid);
 
             SaveAvatar activity = activityWeakReference.get();
-            if ( activity == null || activity.isFinishing())
+            if (activity == null || activity.isFinishing())
                 return;
 
 

@@ -41,6 +41,7 @@ public class MouthSelector extends AppCompatActivity {
     public void nextSelector(View view) {
         Intent intent = new Intent(this, HairSelector.class);
         startActivity(intent);
+        finish();
     }
 
     public void selectOption(View view) {

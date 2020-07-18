@@ -37,5 +37,6 @@ public class AgreeActivity extends AppCompatActivity {
     public void openNextActivity(){
         Intent intent = new Intent(this, BaseSelector.class);
         startActivity(intent);
+        finish();
     }
 }

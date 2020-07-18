@@ -40,6 +40,7 @@ public class HairSelector extends AppCompatActivity {
     public void nextSelector(View view) {
         Intent intent = new Intent(this, SaveAvatar.class);
         startActivity(intent);
+        finish();
     }
 
     public void selectOption(View view) {
