@@ -85,8 +85,10 @@ public class EyesSelector extends AppCompatActivity {
         view.setVisibility(View.GONE);
         Intent intent = new Intent(this, BaseSelector.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
+
 
 
     public void nextSelector(View view) {

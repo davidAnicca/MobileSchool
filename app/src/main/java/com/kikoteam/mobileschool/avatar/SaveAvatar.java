@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
@@ -16,11 +18,11 @@ import com.kikoteam.mobileschool.R;
 
 import java.lang.ref.WeakReference;
 
-public class SaveAvatar extends AppCompatActivity {
+public class SaveAvatar extends AppCompatActivity implements Animation.AnimationListener {
 
     Avatar avatar;
     ProgressBar mProgressBar;
-
+    ImageView finalForm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +33,18 @@ public class SaveAvatar extends AppCompatActivity {
         mProgressBar.setVisibility(View.INVISIBLE);
         avatar = Avatar.getInstance();
 
-        ImageView finalForm = findViewById(R.id.saveAvatarFinalForm);
+        finalForm = findViewById(R.id.saveAvatarFinalForm);
         finalForm.setImageBitmap(avatar.getFinalForm());
 
     }
 
     public void saveAvatar(View view) {
+        Animation animZoomIn;
+
+        animZoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
+        animZoomIn.setAnimationListener(this);
+        finalForm.startAnimation(animZoomIn);
+
         findViewById(R.id.saveAvatarBack).setVisibility(View.GONE);
         view.setVisibility(View.INVISIBLE);
         new BackgroundGateToSavingProcessor(this).execute();
@@ -45,6 +53,7 @@ public class SaveAvatar extends AppCompatActivity {
     public void startMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }
 
@@ -54,6 +63,8 @@ public class SaveAvatar extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
 
     private static class BackgroundGateToSavingProcessor extends AsyncTask<Void, Void, Void> {
         private WeakReference<SaveAvatar> activityWeakReference;
@@ -93,4 +104,18 @@ public class SaveAvatar extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onAnimationStart(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
 }

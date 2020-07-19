@@ -41,6 +41,7 @@ public class HairSelector extends AppCompatActivity {
         view.setVisibility(View.GONE);
         Intent intent = new Intent(this, SaveAvatar.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         finish();
     }
 
@@ -48,6 +49,7 @@ public class HairSelector extends AppCompatActivity {
         view.setVisibility(View.GONE);
         Intent intent = new Intent(this, MouthSelector.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
 

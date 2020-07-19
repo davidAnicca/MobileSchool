@@ -41,6 +41,7 @@ public class BaseSelector extends AppCompatActivity {
     public void skip (View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void showOptions() {
@@ -57,6 +58,7 @@ public class BaseSelector extends AppCompatActivity {
         finish();
         Intent intent = new Intent(this, EyesSelector.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
     }
 

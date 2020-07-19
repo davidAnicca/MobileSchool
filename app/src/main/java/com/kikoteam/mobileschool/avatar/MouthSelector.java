@@ -42,6 +42,7 @@ public class MouthSelector extends AppCompatActivity {
         view.setVisibility(View.GONE);
         Intent intent = new Intent(this, HairSelector.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         finish();
     }
 
@@ -49,6 +50,7 @@ public class MouthSelector extends AppCompatActivity {
         view.setVisibility(View.GONE);
         Intent intent = new Intent(this, EyesSelector.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
 
