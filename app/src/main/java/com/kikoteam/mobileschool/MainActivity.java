@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         seeAvatarButton = findViewById(R.id.mainSeeAvatarButton);
         seeAvatarImage = findViewById(R.id.mainAvatarImage);
 
+
+
         seeAvatarImage.setVisibility(View.GONE);
         seeAvatarButton.setVisibility(View.GONE);
 
@@ -73,15 +75,16 @@ public class MainActivity extends AppCompatActivity {
     public void seeAvatar(View view) {
 
         Animation fadeIn;
+        Animation smoothFloat;
 
-
+        smoothFloat = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.smooth_float);
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
 
 
         seeAvatarImage.setImageBitmap(Avatar.getInstance().getFinalForm());
 
         seeAvatarImage.startAnimation(fadeIn);
-
+        seeAvatarImage.startAnimation(smoothFloat);
         seeAvatarButton.setVisibility(View.GONE);
     }
 

@@ -48,6 +48,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.3.1'
     implementation 'com.google.firebase:firebase-firestore:21.5.0'
     testImplementation 'junit:junit:4.12'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
 
 
 }

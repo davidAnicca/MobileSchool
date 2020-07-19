@@ -9,6 +9,8 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
@@ -37,7 +39,7 @@ public class Initializer extends AppCompatActivity {
      */
 
     ProgressBar initializeProgressBarr;
-    ImageView avatarFinalForm;
+    ImageView logoInitialize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +47,20 @@ public class Initializer extends AppCompatActivity {
         setContentView(R.layout.activity_initializer);
         initializeProgressBarr = findViewById(R.id.initializeProgressBar);
         initializeProgressBarr.setVisibility(View.VISIBLE);
-        avatarFinalForm = findViewById(R.id.avatarInitialize);
+        logoInitialize = findViewById(R.id.logoInitialize);
+        logoAnimate();
+
 
         Avatar.resetInstance();
         Avatar.getInstance();
         getAvatarImageUrl();
 
 
+    }
+
+    private void logoAnimate(){
+        Animation zoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.smooth_float);
+        logoInitialize.startAnimation(zoomIn);
     }
 
     private void downloadProcess() {
@@ -63,6 +72,7 @@ public class Initializer extends AppCompatActivity {
         Application.getInstance().setInitialized(true);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }
 

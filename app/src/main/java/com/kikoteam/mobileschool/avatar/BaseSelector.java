@@ -7,9 +7,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
@@ -19,6 +20,8 @@ public class BaseSelector extends AppCompatActivity {
     Avatar avatar;
     private View lastSelected;
     Button nextButton;
+    ImageView finalForm;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +30,14 @@ public class BaseSelector extends AppCompatActivity {
 
         nextButton = findViewById(R.id.baseSelectorNext);
         nextButton.setVisibility(View.GONE);
+
+        Animation smoothFloat = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.smooth_float);
+
+
         lastSelected = null;
         avatar = Avatar.getInstance();
         if (avatar.getBase() != null) {
-            ImageView finalForm = findViewById(R.id.baseSelectorFinalForm);
+            finalForm = findViewById(R.id.baseSelectorFinalForm);
             finalForm.setImageBitmap(avatar.getFinalForm());
         }
 
