@@ -22,23 +22,34 @@ import com.kikoteam.mobileschool.R;
 
 import java.util.Objects;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class LoginActivity extends AppCompatActivity {
 
-    EditText inEmail, inPassword;
-    FirebaseAuth fAuth;
+    private EditText inEmail, inPassword;
+    private FirebaseAuth fAuth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setViews();
+        initializeViews();
 
-        ProgressBar progressBar = findViewById(R.id.loginProgressBar);
-        progressBar.setVisibility(View.INVISIBLE);
+        fAuth = FirebaseAuth.getInstance();
+    }
 
-
+    private void setViews(){
+        progressBar = findViewById(R.id.loginProgressBar);
         inEmail = findViewById(R.id.loginMail);
         inPassword = findViewById(R.id.loginPassword);
-        fAuth = FirebaseAuth.getInstance();
+    }
+
+    private void initializeViews(){
+        progressBar.setVisibility(View.INVISIBLE);
+        findViewById(R.id.logInBubbles).setVisibility(View.INVISIBLE);
+        findViewById(R.id.logInBubbles2).setVisibility(View.INVISIBLE);
     }
 
     private boolean validateCredentials() {
@@ -67,6 +78,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void logIn(View view) {
+
+        findViewById(R.id.logInBubbles).setVisibility(View.VISIBLE);
+        findViewById(R.id.logInBubbles2).setVisibility(View.VISIBLE);
+
         if (validateCredentials()) {
             final ProgressBar progressBar = findViewById(R.id.loginProgressBar);
             hideKeyboard();
@@ -80,6 +95,8 @@ public class LoginActivity extends AppCompatActivity {
                         finish();
                     } else {
                         progressBar.setVisibility(View.INVISIBLE);
+                        findViewById(R.id.logInBubbles).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.logInBubbles2).setVisibility(View.INVISIBLE);
                         Toast.makeText(LoginActivity.this, getString(R.string.error) + "\n" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }

@@ -8,7 +8,7 @@
     android:clickable="false">
 
     <Button
-        android:id="@+id/LogIn"
+        android:id="@+id/LogInButton"
         style="@android:style/Widget.DeviceDefault.Button.Colored"
         android:layout_width="118dp"
         android:layout_height="49dp"
@@ -26,7 +26,7 @@
         tools:targetApi="p" />
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/loginMailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/loginPasstext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -61,7 +61,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
+        app:layout_constraintTop_toBottomOf="@+id/loginMailText" />
 
     <EditText
         android:id="@+id/loginPassword"
@@ -73,7 +73,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/loginPasstext" />
 
     <ProgressBar
         android:id="@+id/loginProgressBar"
@@ -83,12 +83,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogIn"
+        app:layout_constraintTop_toBottomOf="@+id/LogInButton"
         app:layout_constraintVertical_bias="0.131"
         tools:visibility="invisible" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/forgottenPassText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -99,4 +99,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginProgressBar" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/logInBubbles2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bubbles_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/logInBubbles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.2"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bubbles"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

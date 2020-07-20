@@ -33,35 +33,32 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText inEmail, inPassword, inRepeatedPassword;
     private FirebaseAuth fAuth;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-
-
         fAuth = FirebaseAuth.getInstance();
         stopIfUserIsLoggedIn();
-        tryToLogIn();
-        ProgressBar progressBar = findViewById(R.id.registerProgressBar);
-        progressBar.setVisibility(View.INVISIBLE);
+        setContentView(R.layout.activity_register);
 
+        setViews();
+        initializeViews();
+
+
+    }
+
+    private void setViews (){
         inEmail = findViewById(R.id.registerMail);
         inPassword = findViewById(R.id.registerPassword);
         inRepeatedPassword = findViewById(R.id.registerRepeatedPassword);
+        progressBar = findViewById(R.id.registerProgressBar);
+    }
 
-        Button registerButton = (Button) findViewById(R.id.register);
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProgressBar progressBar = findViewById(R.id.registerProgressBar);
-                if (validateCredentials()) {
-                    hideKeyboard();
-                    progressBar.setVisibility(View.VISIBLE);
-                    addUser(inEmail.getText().toString().trim(), inPassword.getText().toString().trim());
-                }
-            }
-        });
+    private void initializeViews(){
+        progressBar.setVisibility(View.INVISIBLE);
+        findViewById(R.id.registerBubbles).setVisibility(View.INVISIBLE);
+        findViewById(R.id.registerBubbles2).setVisibility(View.INVISIBLE);
     }
 
     private void hideKeyboard(){
@@ -78,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
         String email = inEmail.getText().toString().trim();
         String pass = inPassword.getText().toString().trim();
         String repeatedPassword = inRepeatedPassword.getText().toString().trim();
-        ProgressBar progressBar = findViewById(R.id.registerProgressBar);
+
         if (TextUtils.isEmpty(email)) {
             inEmail.setError(getString(R.string.empty_field));
             progressBar.setVisibility(View.INVISIBLE);
@@ -114,6 +111,8 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     ProgressBar progressBar = findViewById(R.id.registerProgressBar);
                     progressBar.setVisibility(View.INVISIBLE);
+                    findViewById(R.id.registerBubbles).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.registerBubbles2).setVisibility(View.INVISIBLE);
                     Toast.makeText(RegisterActivity.this, getString(R.string.error) + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -127,20 +126,20 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    private void openLoginActivity() {
+    public void openLoginActivity(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-
     }
 
-    private void tryToLogIn() {
-        Button loginButton = (Button) findViewById(R.id.login);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLoginActivity();
-            }
-        });
+    public void register(View view){
+
+        if(validateCredentials()) {
+            hideKeyboard();
+            progressBar.setVisibility(View.VISIBLE);
+            findViewById(R.id.registerBubbles).setVisibility(View.VISIBLE);
+            findViewById(R.id.registerBubbles2).setVisibility(View.VISIBLE);
+            addUser(inEmail.getText().toString().trim(), inPassword.getText().toString().trim());
+        }
     }
 
 }

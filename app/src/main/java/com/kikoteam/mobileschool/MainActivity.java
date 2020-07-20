@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        logInIfNotLogged();
+        if(logInIfNotLogged())
+            return;
         initializeIfNotInitialized();
 
         setViews();
@@ -40,12 +41,14 @@ public class MainActivity extends AppCompatActivity {
             initialize();
     }
 
-    private void logInIfNotLogged(){
+    private boolean logInIfNotLogged(){
         fAuth = FirebaseAuth.getInstance();
         if (fAuth.getCurrentUser() == null) {
             startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             finish();
+            return true;
         }
+        return false;
     }
 
     private void setViews(){
