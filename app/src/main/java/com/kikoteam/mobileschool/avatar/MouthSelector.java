@@ -13,29 +13,41 @@ import com.kikoteam.mobileschool.R;
 
 public class MouthSelector extends AppCompatActivity {
 
-    Avatar avatar;
+
     private View lastSelected;
+
+    private ImageView finalForm;
+
+    private ImageView option1;
+    private ImageView option2;
+    ///
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mouth_selector);
+        setViews();
 
         lastSelected = null;
-        avatar = Avatar.getInstance();
 
-        ImageView finalForm = findViewById(R.id.mouthSelectorFinalForm);
-        finalForm.setImageBitmap(avatar.getFinalForm());
+        finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
 
         showOptions();
 
     }
 
+    private void setViews() {
+        finalForm = findViewById(R.id.mouthSelectorFinalForm);
+
+        option1 = findViewById(R.id.mouthSelectorOption1);
+        option2 = findViewById(R.id.mouthSelectorOption2);
+        ///
+    }
+
     private void showOptions() {
-        ImageView option1 = findViewById(R.id.mouthSelectorOption1);
         option1.setImageBitmap(BitmapFactory.decodeResource(MouthSelector.this.getResources(), R.drawable.mouth_open));
-        ImageView option2 = findViewById(R.id.mouthSelectorOption2);
         option2.setImageBitmap(BitmapFactory.decodeResource(MouthSelector.this.getResources(), R.drawable.mouth_almost_closed));
+        ///
     }
 
     public void nextSelector(View view) {
@@ -46,7 +58,7 @@ public class MouthSelector extends AppCompatActivity {
         finish();
     }
 
-    public void previousSelector(View view){
+    public void previousSelector(View view) {
         view.setVisibility(View.GONE);
         Intent intent = new Intent(this, EyesSelector.class);
         startActivity(intent);
@@ -61,10 +73,10 @@ public class MouthSelector extends AppCompatActivity {
         view.setBackgroundColor(Color.LTGRAY);
         lastSelected = view;
 
-        avatar.setMouth(ImageProcessor.getBitmapFromView(view));
-        avatar.rebuild();
+        Avatar.getInstance().setMouth(ImageProcessor.getBitmapFromView(view));
+        Avatar.getInstance().rebuild();
         ImageView finalForm = findViewById(R.id.mouthSelectorFinalForm);
-        finalForm.setImageBitmap(avatar.getFinalForm());
+        finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
     }
 
 }

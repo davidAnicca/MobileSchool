@@ -17,10 +17,13 @@ import com.kikoteam.mobileschool.R;
 
 public class BaseSelector extends AppCompatActivity {
 
-    Avatar avatar;
+
     private View lastSelected;
-    Button nextButton;
-    ImageView finalForm;
+    private Button nextButton;
+    private ImageView finalForm;
+
+    private ImageView option1;
+    private ImageView option2;
 
 
     @Override
@@ -28,21 +31,25 @@ public class BaseSelector extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_selector);
 
-        nextButton = findViewById(R.id.baseSelectorNext);
+        setViews();
         nextButton.setVisibility(View.GONE);
 
-        Animation smoothFloat = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.smooth_float);
-
-
         lastSelected = null;
-        avatar = Avatar.getInstance();
-        if (avatar.getBase() != null) {
-            finalForm = findViewById(R.id.baseSelectorFinalForm);
-            finalForm.setImageBitmap(avatar.getFinalForm());
+
+        if (Avatar.getInstance().getBase() != null) {
+            finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
         }
 
         showOptions();
 
+    }
+
+    private void setViews(){
+        nextButton = findViewById(R.id.baseSelectorNext);
+        finalForm = findViewById(R.id.baseSelectorFinalForm);
+
+        option1 = findViewById(R.id.baseSelectorOption1);
+        option2 = findViewById(R.id.baseSelectorOption2);
     }
 
     public void skip (View view){
@@ -52,9 +59,7 @@ public class BaseSelector extends AppCompatActivity {
     }
 
     private void showOptions() {
-        ImageView option1 = findViewById(R.id.baseSelectorOption1);
         option1.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.square_base_388c91));
-        ImageView option2 = findViewById(R.id.baseSelectorOption2);
         option2.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.square_base_e2152d));
     }
 
@@ -76,10 +81,10 @@ public class BaseSelector extends AppCompatActivity {
             lastSelected.setBackgroundColor(Color.TRANSPARENT);
         view.setBackgroundColor(Color.LTGRAY);
         lastSelected = view;
-        avatar.setBase(ImageProcessor.getBitmapFromView(view));
-        avatar.rebuild();
-        ImageView finalForm = findViewById(R.id.baseSelectorFinalForm);
-        finalForm.setImageBitmap(avatar.getFinalForm());
+        Avatar.getInstance().setBase(ImageProcessor.getBitmapFromView(view));
+        Avatar.getInstance().rebuild();
+        finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
+
     }
 
 

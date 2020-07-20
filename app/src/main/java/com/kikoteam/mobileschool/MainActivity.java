@@ -22,44 +22,54 @@ public class MainActivity extends AppCompatActivity {
     Button seeAvatarButton;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        logInIfNotLogged();
+        initializeIfNotInitialized();
+
+        setViews();
+        initializeViews();
+    }
+
+    private void initializeIfNotInitialized(){
         if (!Application.getInstance().isInitialized())
             initialize();
+    }
 
-        seeAvatarButton = findViewById(R.id.mainSeeAvatarButton);
-        seeAvatarImage = findViewById(R.id.mainAvatarImage);
-
-
-
-        seeAvatarImage.setVisibility(View.GONE);
-        seeAvatarButton.setVisibility(View.GONE);
-
-        if (Avatar.getInstance().getFinalForm() != null && !Avatar.getInstance().getUrl().equals("empty")) {
-            seeAvatarImage.setVisibility(View.VISIBLE);
-            seeAvatarButton.setVisibility(View.VISIBLE);
-        }
-
+    private void logInIfNotLogged(){
         fAuth = FirebaseAuth.getInstance();
         if (fAuth.getCurrentUser() == null) {
             startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             finish();
         }
-
     }
 
-    public void initialize() {
+    private void setViews(){
+        seeAvatarButton = findViewById(R.id.mainSeeAvatarButton);
+        seeAvatarImage = findViewById(R.id.mainAvatarImage);
+    }
+
+    private void initializeViews(){
+        seeAvatarImage.setVisibility(View.GONE);
+        if (Avatar.getInstance().getFinalForm() != null && !Avatar.getInstance().getUrl().equals("empty")) {
+            seeAvatarButton.setVisibility(View.VISIBLE);
+        }else{
+            seeAvatarButton.setVisibility(View.GONE);
+        }
+    }
+
+    private void initialize() {
         Intent intent = new Intent(this, Initializer.class);
         startActivity(intent);
         finish();
     }
 
     public void logOut(View view) {
+        view.setVisibility(View.GONE);
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
         Avatar.getInstance().setFinalForm(null);
@@ -68,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startAvatarCreator(View view) {
+        seeAvatarImage.setVisibility(View.GONE);
         Intent intent = new Intent(this, BaseSelector.class);
         startActivity(intent);
     }
@@ -82,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         seeAvatarImage.setImageBitmap(Avatar.getInstance().getFinalForm());
-
+        seeAvatarImage.setVisibility(View.VISIBLE);
         seeAvatarImage.startAnimation(fadeIn);
         seeAvatarImage.startAnimation(smoothFloat);
         seeAvatarButton.setVisibility(View.GONE);

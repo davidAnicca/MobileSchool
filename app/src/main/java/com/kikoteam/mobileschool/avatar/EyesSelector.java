@@ -1,7 +1,5 @@
 package com.kikoteam.mobileschool.avatar;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -14,41 +12,50 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.kikoteam.mobileschool.R;
 
 import java.lang.ref.WeakReference;
 
 public class EyesSelector extends AppCompatActivity {
 
-    Avatar avatar;
+
     private View lastSelected;
-    private ImageView eyesSelectorOption1;
-    private ImageView eyesSelectorOption2;
-    private ImageView eyesSelectorFinalForm;
+    private ImageView finalForm;
+    private Button nextSelector;
+
+
+    private ImageView option1;
+    private ImageView option2;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eyes_selector);
-        eyesSelectorFinalForm = findViewById(R.id.eyesSelectorFinalForm);
-        eyesSelectorOption1 = findViewById(R.id.eyesSelectorOption1);
-        eyesSelectorOption2 = findViewById(R.id.eyesSelectorOption2);
-
-        avatar = Avatar.getInstance();
+        setViews();
         lastSelected = null;
 
         new LoadData(this, EyesSelector.this).execute();
+    }
+
+    private void setViews(){
+        finalForm = findViewById(R.id.eyesSelectorFinalForm);
+
+        option1 = findViewById(R.id.eyesSelectorOption1);
+        option2 = findViewById(R.id.eyesSelectorOption2);
     }
 
     private static class LoadData extends AsyncTask<Void, Void, Void> {
         private WeakReference<EyesSelector> activityWeakReference;
 
 
-        private Bitmap option1;
-        private Bitmap option2;
+        private Bitmap option1Bitmap;
+        private Bitmap option2Bitmap;
 
-        private Bitmap finalForm;
+        private Bitmap finalFormBitmap;
 
         @SuppressLint("StaticFieldLeak")
         private Context mContext;
@@ -61,9 +68,10 @@ public class EyesSelector extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            option1 = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.eyes_60901b);
-            option2 = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.eyes_384f90);
-            finalForm = Avatar.getInstance().getFinalForm();
+            option1Bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.eyes_60901b);
+            option2Bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.eyes_384f90);
+
+            finalFormBitmap = Avatar.getInstance().getFinalForm();
 
         }
 
@@ -73,10 +81,10 @@ public class EyesSelector extends AppCompatActivity {
             if (activity == null || activity.isFinishing())
                 return null;
 
+            activity.option1.setImageBitmap(option1Bitmap);
+            activity.option2.setImageBitmap(option2Bitmap);
 
-            activity.eyesSelectorOption1.setImageBitmap(option1);
-            activity.eyesSelectorOption2.setImageBitmap(option2);
-            activity.eyesSelectorFinalForm.setImageBitmap(finalForm);
+            activity.finalForm.setImageBitmap(finalFormBitmap);
             return null;
         }
     }
@@ -88,7 +96,6 @@ public class EyesSelector extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
-
 
 
     public void nextSelector(View view) {
@@ -104,10 +111,9 @@ public class EyesSelector extends AppCompatActivity {
             lastSelected.setBackgroundColor(Color.TRANSPARENT);
         view.setBackgroundColor(Color.LTGRAY);
         lastSelected = view;
-        avatar.setEyes(ImageProcessor.getBitmapFromView(view));
-        avatar.rebuild();
-        ImageView finalForm = findViewById(R.id.eyesSelectorFinalForm);
-        finalForm.setImageBitmap(avatar.getFinalForm());
+        Avatar.getInstance().setEyes(ImageProcessor.getBitmapFromView(view));
+        Avatar.getInstance().rebuild();
+        finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
     }
 
 }

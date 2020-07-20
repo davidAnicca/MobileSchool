@@ -13,27 +13,34 @@ import com.kikoteam.mobileschool.R;
 
 public class HairSelector extends AppCompatActivity {
 
-    Avatar avatar;
+
     private View lastSelected;
+    private ImageView finalForm;
+
+    private ImageView option1;
+    private ImageView option2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hair_selector);
+        setViews();
 
         lastSelected = null;
-        avatar = Avatar.getInstance();
-
-        ImageView finalForm = findViewById(R.id.hairSelectorFinalForm);
-        finalForm.setImageBitmap(avatar.getFinalForm());
+        finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
 
         showOptions();
     }
 
+    private void setViews(){
+        finalForm = findViewById(R.id.hairSelectorFinalForm);
+
+        option1 = findViewById(R.id.hairSelectorOption1);
+        option2 = findViewById(R.id.hairSelectorOption2);
+    }
+
     private void showOptions() {
-        ImageView option1 = findViewById(R.id.hairSelectorOption1);
         option1.setImageBitmap(BitmapFactory.decodeResource(HairSelector.this.getResources(), R.drawable.hair_1));
-        ImageView option2 = findViewById(R.id.hairSelectorOption2);
         option2.setImageBitmap(BitmapFactory.decodeResource(HairSelector.this.getResources(), R.drawable.hair_2));
     }
 
@@ -58,9 +65,9 @@ public class HairSelector extends AppCompatActivity {
             lastSelected.setBackgroundColor(Color.TRANSPARENT);
         view.setBackgroundColor(Color.LTGRAY);
         lastSelected = view;
-        avatar.setHair(ImageProcessor.getBitmapFromView(view));
-        avatar.rebuild();
+        Avatar.getInstance().setHair(ImageProcessor.getBitmapFromView(view));
+        Avatar.getInstance().rebuild();
         ImageView finalForm = findViewById(R.id.hairSelectorFinalForm);
-        finalForm.setImageBitmap(avatar.getFinalForm());
+        finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
     }
 }

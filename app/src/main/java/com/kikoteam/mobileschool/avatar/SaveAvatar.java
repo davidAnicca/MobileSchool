@@ -18,9 +18,9 @@ import com.kikoteam.mobileschool.R;
 
 import java.lang.ref.WeakReference;
 
-public class SaveAvatar extends AppCompatActivity implements Animation.AnimationListener {
+public class SaveAvatar extends AppCompatActivity {
 
-    Avatar avatar;
+
     ProgressBar mProgressBar;
     ImageView finalForm;
 
@@ -28,42 +28,47 @@ public class SaveAvatar extends AppCompatActivity implements Animation.Animation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_avatar);
+        setViews();
+        initializeViews();
+    }
 
+    private void setViews(){
         mProgressBar = findViewById(R.id.saveProgressBar);
-        mProgressBar.setVisibility(View.INVISIBLE);
-        avatar = Avatar.getInstance();
-
         finalForm = findViewById(R.id.saveAvatarFinalForm);
-        finalForm.setImageBitmap(avatar.getFinalForm());
+    }
 
+    private void initializeViews(){
+        mProgressBar.setVisibility(View.INVISIBLE);
+
+        Animation smoothFloat = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.smooth_float);
+        finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
+        finalForm.startAnimation(smoothFloat);
     }
 
     public void saveAvatar(View view) {
-        Animation animZoomIn;
 
+        Animation animZoomIn;
         animZoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
-        animZoomIn.setAnimationListener(this);
         finalForm.startAnimation(animZoomIn);
 
         findViewById(R.id.saveAvatarBack).setVisibility(View.GONE);
-        view.setVisibility(View.INVISIBLE);
+        view.setVisibility(View.GONE);
         new BackgroundGateToSavingProcessor(this).execute();
     }
 
-    public void startMainActivity() {
+    private void startMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }
 
-    public void backSelector (View view) {
+    public void backSelector(View view) {
         view.setVisibility(View.GONE);
         Intent intent = new Intent(this, HairSelector.class);
         startActivity(intent);
         finish();
     }
-
 
 
     private static class BackgroundGateToSavingProcessor extends AsyncTask<Void, Void, Void> {
@@ -104,18 +109,4 @@ public class SaveAvatar extends AppCompatActivity implements Animation.Animation
         }
     }
 
-    @Override
-    public void onAnimationStart(Animation animation) {
-
-    }
-
-    @Override
-    public void onAnimationEnd(Animation animation) {
-
-    }
-
-    @Override
-    public void onAnimationRepeat(Animation animation) {
-
-    }
 }
