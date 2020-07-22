@@ -30,7 +30,7 @@ public class BaseSelector extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_selector);
-        Avatar.resetInstance();
+
         setViews();
         nextButton.setVisibility(View.GONE);
 

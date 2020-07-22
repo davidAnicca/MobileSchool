@@ -79,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void startAvatarCreator(View view) {
+    public void createNewAvatar(View view) {
+        Avatar.resetInstance();
         seeAvatarImage.setVisibility(View.GONE);
         Intent intent = new Intent(this, BaseSelector.class);
         startActivity(intent);
