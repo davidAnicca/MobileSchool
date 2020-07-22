@@ -18,7 +18,7 @@
         <activity android:name=".avatar.MouthSelector" />
         <activity android:name=".avatar.EyesSelector" />
         <activity android:name=".avatar.BaseSelector" />
-        <activity android:name=".registerlogin.ResetPasswordActivity" />
+        <activity android:name=".registerLogIn.ResetPasswordActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,9 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".registerlogin.RegisterActivity" />
-        <activity android:name=".registerlogin.LoginActivity" />
-        <activity android:name=".registerlogin.AgreeActivity" />
+        <activity android:name=".registerLogIn.RegisterActivity" />
+        <activity android:name=".registerLogIn.LoginActivity" />
+        <activity android:name=".registerLogIn.AgreeActivity" />
     </application>
 
 </manifest>

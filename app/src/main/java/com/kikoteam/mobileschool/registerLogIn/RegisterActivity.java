@@ -1,4 +1,4 @@
-package com.kikoteam.mobileschool.registerlogin;
+package com.kikoteam.mobileschool.registerLogIn;
 
 import android.content.Intent;
 import android.os.Bundle;

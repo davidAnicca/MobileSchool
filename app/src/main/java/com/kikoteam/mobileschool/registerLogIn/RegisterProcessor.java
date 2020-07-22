@@ -1,4 +1,4 @@
-package com.kikoteam.mobileschool.registerlogin;
+package com.kikoteam.mobileschool.registerLogIn;
 
 import android.os.AsyncTask;
 

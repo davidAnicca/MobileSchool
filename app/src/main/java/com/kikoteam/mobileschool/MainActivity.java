@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.kikoteam.mobileschool.registerlogin.RegisterActivity;
+import com.kikoteam.mobileschool.registerLogIn.RegisterActivity;
 import com.kikoteam.mobileschool.avatar.Avatar;
 import com.kikoteam.mobileschool.avatar.BaseSelector;
 

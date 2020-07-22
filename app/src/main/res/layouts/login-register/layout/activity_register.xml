@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
-    tools:context=".registerlogin.AgreeActivity">
+    tools:context=".registerLogIn.RegisterActivity">
 
     <Button
         android:id="@+id/loginButton"
@@ -21,7 +21,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0"
-        tools:targetApi="p" />
+        tools:targetApi="p"
+        tools:ignore="OnClick" />
 
     <EditText
         android:id="@+id/registerMail"
