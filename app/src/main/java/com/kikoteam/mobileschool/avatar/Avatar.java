@@ -1,6 +1,7 @@
 package com.kikoteam.mobileschool.avatar;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 public class Avatar {
 
@@ -8,16 +9,27 @@ public class Avatar {
     private Bitmap eyes;
     private Bitmap mouth;
     private Bitmap hair;
+    private Bitmap ear;
+    private Bitmap nose;
+    private Bitmap eyes_accessory;
+    private Bitmap other_accessory;
     private Bitmap finalForm;
 
     ///singleton instance
     private static Avatar instance = null;
+
+
+
 
     private Avatar() {
         base = null;
         eyes = null;
         mouth = null;
         hair = null;
+        ear = null;
+        nose = null;
+        eyes_accessory = null;
+        other_accessory = null;
         finalForm = null;
 
     }
@@ -29,19 +41,13 @@ public class Avatar {
         return instance;
     }
 
-    public static void resetInstance(){
+    public static void resetInstance() {
         instance = null;
     }
 
-    public Bitmap getHair() {
-        return hair;
-    }
-
-    public void setHair(Bitmap hair) {
-        this.hair = hair;
-    }
 
     public void rebuild() {
+
         this.finalForm = this.base;
 
         if (this.eyes != null)
@@ -52,6 +58,19 @@ public class Avatar {
 
         if (this.hair != null)
             this.finalForm = ImageProcessor.imageMerger(this.finalForm, this.hair);
+
+        if ( this.nose != null)
+            this.finalForm = ImageProcessor.imageMerger(this.finalForm, this.nose);
+
+        if ( this.ear != null)
+            this.finalForm = ImageProcessor.imageMerger(this.finalForm, this.ear);
+
+        if ( this.eyes_accessory != null)
+            this.finalForm = ImageProcessor.imageMerger(this.finalForm, this.eyes_accessory);
+
+        if ( this.other_accessory != null)
+            this.finalForm = ImageProcessor.imageMerger(this.finalForm, this.other_accessory);
+
 
     }
 
@@ -85,5 +104,44 @@ public class Avatar {
 
     public void setFinalForm(Bitmap finalForm) {
         this.finalForm = finalForm;
+    }
+
+    public Bitmap getEar() {
+        return ear;
+    }
+
+    public void setEar(Bitmap ear) {
+        this.ear = ear;
+    }
+
+    public Bitmap getHair() {
+        return hair;
+    }
+
+    public void setHair(Bitmap hair) {
+        this.hair = hair;
+    }
+
+    public Bitmap getEyes_accessory() {
+        return eyes_accessory;
+    }
+
+    public void setEyes_accessory(Bitmap eyes_accessory) {
+        this.eyes_accessory = eyes_accessory;
+    }
+
+    public Bitmap getOther_accessory() {
+        return other_accessory;
+    }
+
+    public void setOther_accessory(Bitmap other_accessory) {
+        this.other_accessory = other_accessory;
+    }
+    public Bitmap getNose() {
+        return nose;
+    }
+
+    public void setNose(Bitmap nose) {
+        this.nose = nose;
     }
 }

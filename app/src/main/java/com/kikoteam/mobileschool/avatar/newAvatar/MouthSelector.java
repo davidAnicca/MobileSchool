@@ -62,7 +62,7 @@ public class MouthSelector extends AppCompatActivity {
 
     public void previousSelector(View view) {
         view.setVisibility(View.GONE);
-        Intent intent = new Intent(this, EyesSelector.class);
+        Intent intent = new Intent(this, NoseSelector.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
@@ -77,7 +77,6 @@ public class MouthSelector extends AppCompatActivity {
 
         Avatar.getInstance().setMouth(ImageProcessor.getBitmapFromView(view));
         Avatar.getInstance().rebuild();
-        ImageView finalForm = findViewById(R.id.mouthSelectorFinalForm);
         finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
     }
 

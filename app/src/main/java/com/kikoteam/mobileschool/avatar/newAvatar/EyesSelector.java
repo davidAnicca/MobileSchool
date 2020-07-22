@@ -102,7 +102,7 @@ public class EyesSelector extends AppCompatActivity {
 
     public void nextSelector(View view) {
         view.setVisibility(View.GONE);
-        Intent intent = new Intent(this, MouthSelector.class);
+        Intent intent = new Intent(this, NoseSelector.class);
         startActivity(intent);
         finish();
     }

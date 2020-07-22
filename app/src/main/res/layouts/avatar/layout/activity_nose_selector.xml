@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".avatar.newAvatar.NoseSelector">
+
+    <ImageView
+        android:id="@+id/noseSelectorFinalForm"
+        android:layout_width="231dp"
+        android:layout_height="295dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.189"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ScrollView
+        android:id="@+id/noseSelectorOptionScroll"
+        android:layout_width="173dp"
+        android:layout_height="218dp"
+        app:layout_constraintEnd_toEndOf="@+id/noseSelectorFinalForm"
+        app:layout_constraintStart_toStartOf="@+id/noseSelectorFinalForm"
+        app:layout_constraintTop_toBottomOf="@+id/noseSelectorFinalForm">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/noseSelectorOption1"
+                android:layout_width="match_parent"
+                android:layout_height="109dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/noseSelectorOption2"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/noseSelectorNext"
+        android:layout_width="55dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="275dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="nextSelector"
+        android:text="@android:string/ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/noseSelectorOptionScroll"
+        app:layout_constraintTop_toTopOf="@+id/noseSelectorOptionScroll"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/noseSelectorBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="289dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="previousSelector"
+        android:text="@string/back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/noseSelectorOptionScroll"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/noseSelectorOptionScroll"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
