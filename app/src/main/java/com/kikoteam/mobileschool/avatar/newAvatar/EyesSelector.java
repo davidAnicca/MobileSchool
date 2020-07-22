@@ -1,4 +1,4 @@
-package com.kikoteam.mobileschool.avatar;
+package com.kikoteam.mobileschool.avatar.newAvatar;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.kikoteam.mobileschool.R;
+import com.kikoteam.mobileschool.avatar.Avatar;
+import com.kikoteam.mobileschool.avatar.ImageProcessor;
 
 import java.lang.ref.WeakReference;
 

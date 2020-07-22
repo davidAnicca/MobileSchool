@@ -9,7 +9,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.kikoteam.mobileschool.R;
-import com.kikoteam.mobileschool.avatar.BaseSelector;
+import com.kikoteam.mobileschool.avatar.newAvatar.BaseSelector;
 
 public class AgreeActivity extends AppCompatActivity {
 

@@ -11,10 +11,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
+import com.kikoteam.mobileschool.avatar.newAvatar.HairSelector;
 
 import java.lang.ref.WeakReference;
 

@@ -1,4 +1,4 @@
-package com.kikoteam.mobileschool.avatar;
+package com.kikoteam.mobileschool.avatar.newAvatar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,13 +7,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
+import com.kikoteam.mobileschool.avatar.Avatar;
+import com.kikoteam.mobileschool.avatar.ImageProcessor;
 
 public class BaseSelector extends AppCompatActivity {
 
