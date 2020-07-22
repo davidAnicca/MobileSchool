@@ -54,8 +54,7 @@ public class SavingProcessor  {
                         if (task.isSuccessful()) {
                             Uri downUri = task.getResult();
                             assert downUri != null;
-                            Avatar.getInstance().setUrl(downUri.toString());
-                            saveUrl();
+                            saveUrl(downUri.toString());
                         }
                     }
                 });
@@ -63,14 +62,12 @@ public class SavingProcessor  {
         });
     }
 
-    private static void saveUrl() {
-        Avatar avatar = Avatar.getInstance();
-
+    private static void saveUrl(String finalFormUrl) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, String> url = new HashMap<>();
         url.put("userID", userID);
-        url.put("Avatar url", avatar.getUrl());
+        url.put("Avatar url", finalFormUrl);
         CollectionReference urls = db.collection("avatars");
         urls.document(userID).set(url);
     }

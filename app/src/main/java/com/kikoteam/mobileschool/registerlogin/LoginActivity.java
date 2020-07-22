@@ -1,4 +1,4 @@
-package com.kikoteam.mobileschool.RegisterLogIn;
+package com.kikoteam.mobileschool.registerlogin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,12 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.kikoteam.mobileschool.Initializer;
-import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
 
 import java.util.Objects;
-
-import pl.droidsonroids.gif.GifImageView;
 
 public class LoginActivity extends AppCompatActivity {
 

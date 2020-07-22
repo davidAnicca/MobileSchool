@@ -1,4 +1,4 @@
-package com.kikoteam.mobileschool.RegisterLogIn;
+package com.kikoteam.mobileschool.registerlogin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,6 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import com.kikoteam.mobileschool.Initializer;
 import com.kikoteam.mobileschool.R;
 import com.kikoteam.mobileschool.avatar.BaseSelector;
 

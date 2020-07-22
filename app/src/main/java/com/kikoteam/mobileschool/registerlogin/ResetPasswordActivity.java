@@ -1,4 +1,4 @@
-package com.kikoteam.mobileschool.RegisterLogIn;
+package com.kikoteam.mobileschool.registerlogin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

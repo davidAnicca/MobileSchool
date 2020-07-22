@@ -41,21 +41,27 @@ public class Initializer extends AppCompatActivity {
     ProgressBar initializeProgressBarr;
     ImageView logoInitialize;
 
+    String finalFormUrl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initializer);
-        initializeProgressBarr = findViewById(R.id.initializeProgressBar);
-        initializeProgressBarr.setVisibility(View.VISIBLE);
-        logoInitialize = findViewById(R.id.logoInitialize);
-        logoAnimate();
+        setViews();
 
+        initializeProgressBarr.setVisibility(View.VISIBLE);
+
+        logoAnimate();
 
         Avatar.resetInstance();
         Avatar.getInstance();
+
         getAvatarImageUrl();
 
-
+    }
+    private void setViews(){
+        initializeProgressBarr = findViewById(R.id.initializeProgressBar);
+        logoInitialize = findViewById(R.id.logoInitialize);
     }
 
     private void logoAnimate(){
@@ -65,7 +71,7 @@ public class Initializer extends AppCompatActivity {
 
     private void downloadProcess() {
         AvatarDownloader task = new AvatarDownloader(this);
-        task.execute(Avatar.getInstance().getUrl());
+        task.execute(finalFormUrl);
     }
 
     private void exitInitializer() {
@@ -133,9 +139,8 @@ public class Initializer extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()) {
                             Map<String, Object> data = documentSnapshot.getData();
-                            Avatar avatar = Avatar.getInstance();
                             String url = (String) data.get("Avatar url");
-                            avatar.setUrl(url);
+                            finalFormUrl = url;
                             if (!url.equals("empty"))
                                 downloadProcess();
                             else exitInitializer();
@@ -148,8 +153,7 @@ public class Initializer extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Avatar avatar = Avatar.getInstance();
-                        avatar.setUrl("empty");
+                        finalFormUrl = "empty";
 
                     }
                 });

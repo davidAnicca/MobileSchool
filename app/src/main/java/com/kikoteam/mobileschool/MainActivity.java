@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.kikoteam.mobileschool.RegisterLogIn.RegisterActivity;
+import com.kikoteam.mobileschool.registerlogin.RegisterActivity;
 import com.kikoteam.mobileschool.avatar.Avatar;
 import com.kikoteam.mobileschool.avatar.BaseSelector;
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeViews(){
         seeAvatarImage.setVisibility(View.GONE);
-        if (Avatar.getInstance().getFinalForm() != null && !Avatar.getInstance().getUrl().equals("empty")) {
+        if (Avatar.getInstance().getFinalForm() != null ) {
             seeAvatarButton.setVisibility(View.VISIBLE);
         }else{
             seeAvatarButton.setVisibility(View.GONE);
