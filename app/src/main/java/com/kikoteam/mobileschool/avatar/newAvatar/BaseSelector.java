@@ -35,7 +35,6 @@ public class BaseSelector extends AppCompatActivity {
     private ImageView option11;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +53,7 @@ public class BaseSelector extends AppCompatActivity {
 
     }
 
-    private void setViews(){
+    private void setViews() {
         nextButton = findViewById(R.id.baseSelectorNext);
         finalForm = findViewById(R.id.baseSelectorFinalForm);
 
@@ -71,26 +70,25 @@ public class BaseSelector extends AppCompatActivity {
         option11 = findViewById(R.id.baseSelectorOption11);
     }
 
-    public void skip (View view){
+    public void skip(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void showOptions() {
-        option1.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_beige));
-        option2.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_orange));
-        option3.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_red));
-        option4.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_white));
-        option5.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_yellow));
-        option6.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_oval_beige));
-        option7.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_beige));
-        option8.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_orange));
-        option9.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_red));
-        option10.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_white));
-        option11.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_yellow));
+        option1.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base1));
+        option2.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base2));
+        option3.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base3));
+        option4.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base4));
+        option5.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base5));
+        option6.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base6));
+        option7.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base7));
+        option8.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base8));
+        option9.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base9));
+        option10.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base10));
+        option11.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base11));
     }
-
 
 
     public void nextSelector(View view) {
