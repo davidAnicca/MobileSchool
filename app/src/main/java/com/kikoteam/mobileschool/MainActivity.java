@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.kikoteam.mobileschool.registerLogIn.RegisterActivity;
-import com.kikoteam.mobileschool.avatar.Avatar;
+import com.kikoteam.mobileschool.avatar.entities.Avatar;
 import com.kikoteam.mobileschool.avatar.newAvatar.BaseSelector;
 
 public class MainActivity extends AppCompatActivity {

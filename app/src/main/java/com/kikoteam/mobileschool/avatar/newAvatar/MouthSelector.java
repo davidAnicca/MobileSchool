@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.kikoteam.mobileschool.R;
-import com.kikoteam.mobileschool.avatar.Avatar;
-import com.kikoteam.mobileschool.avatar.ImageProcessor;
+import com.kikoteam.mobileschool.avatar.entities.Avatar;
+import com.kikoteam.mobileschool.avatar.processors.ImageProcessor;
 
 public class MouthSelector extends AppCompatActivity {
 

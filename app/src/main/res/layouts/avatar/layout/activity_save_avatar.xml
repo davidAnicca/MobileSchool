@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".avatar.SaveAvatar">
+    tools:context=".avatar.newAvatar.SaveAvatar">
 
     <ImageView
         android:id="@+id/saveAvatarFinalForm"

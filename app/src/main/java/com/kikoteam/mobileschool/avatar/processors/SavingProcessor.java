@@ -1,4 +1,4 @@
-package com.kikoteam.mobileschool.avatar;
+package com.kikoteam.mobileschool.avatar.processors;
 
 import android.graphics.Bitmap;
 import android.net.Uri;

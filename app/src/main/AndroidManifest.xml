@@ -18,7 +18,7 @@
         <activity android:name=".avatar.newAvatar.EarSelector" android:screenOrientation="portrait"/>
         <activity android:name=".avatar.newAvatar.NoseSelector" android:screenOrientation="portrait"/>
         <activity android:name=".Initializer" android:screenOrientation="portrait"/>
-        <activity android:name=".avatar.SaveAvatar" android:screenOrientation="portrait"/>
+        <activity android:name=".avatar.newAvatar.SaveAvatar" android:screenOrientation="portrait"/>
         <activity android:name=".avatar.newAvatar.HairSelector" android:screenOrientation="portrait"/>
         <activity android:name=".avatar.newAvatar.MouthSelector" android:screenOrientation="portrait"/>
         <activity android:name=".avatar.newAvatar.EyesSelector" android:screenOrientation="portrait"/>

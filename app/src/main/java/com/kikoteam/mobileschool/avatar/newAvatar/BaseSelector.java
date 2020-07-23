@@ -12,8 +12,8 @@ import android.widget.ImageView;
 
 import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
-import com.kikoteam.mobileschool.avatar.Avatar;
-import com.kikoteam.mobileschool.avatar.ImageProcessor;
+import com.kikoteam.mobileschool.avatar.entities.Avatar;
+import com.kikoteam.mobileschool.avatar.processors.ImageProcessor;
 
 public class BaseSelector extends AppCompatActivity {
 
@@ -24,6 +24,16 @@ public class BaseSelector extends AppCompatActivity {
 
     private ImageView option1;
     private ImageView option2;
+    private ImageView option3;
+    private ImageView option4;
+    private ImageView option5;
+    private ImageView option6;
+    private ImageView option7;
+    private ImageView option8;
+    private ImageView option9;
+    private ImageView option10;
+    private ImageView option11;
+
 
 
     @Override
@@ -50,6 +60,15 @@ public class BaseSelector extends AppCompatActivity {
 
         option1 = findViewById(R.id.baseSelectorOption1);
         option2 = findViewById(R.id.baseSelectorOption2);
+        option3 = findViewById(R.id.baseSelectorOption3);
+        option4 = findViewById(R.id.baseSelectorOption4);
+        option5 = findViewById(R.id.baseSelectorOption5);
+        option6 = findViewById(R.id.baseSelectorOption6);
+        option7 = findViewById(R.id.baseSelectorOption7);
+        option8 = findViewById(R.id.baseSelectorOption8);
+        option9 = findViewById(R.id.baseSelectorOption9);
+        option10 = findViewById(R.id.baseSelectorOption10);
+        option11 = findViewById(R.id.baseSelectorOption11);
     }
 
     public void skip (View view){
@@ -59,8 +78,17 @@ public class BaseSelector extends AppCompatActivity {
     }
 
     private void showOptions() {
-        option1.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.square_base_388c91));
-        option2.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.square_base_e2152d));
+        option1.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_beige));
+        option2.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_orange));
+        option3.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_red));
+        option4.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_white));
+        option5.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_circle_yellow));
+        option6.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_oval_beige));
+        option7.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_beige));
+        option8.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_orange));
+        option9.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_red));
+        option10.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_white));
+        option11.setImageBitmap(BitmapFactory.decodeResource(BaseSelector.this.getResources(), R.drawable.base_square_yellow));
     }
 
 

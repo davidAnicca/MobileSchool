@@ -18,6 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.kikoteam.mobileschool.Initializer;
 import com.kikoteam.mobileschool.R;
+import com.kikoteam.mobileschool.registerLogIn.processors.RegisterProcessor;
 
 import java.util.Objects;
 

@@ -1,7 +1,5 @@
 package com.kikoteam.mobileschool;
 
-import com.kikoteam.mobileschool.avatar.Avatar;
-
 public class Application {
     ///singleton class
     ///use it to check if app and user information are INITIALIZED

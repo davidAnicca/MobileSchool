@@ -1,4 +1,4 @@
-package com.kikoteam.mobileschool.avatar;
+package com.kikoteam.mobileschool.avatar.newAvatar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,8 @@ import android.widget.ProgressBar;
 
 import com.kikoteam.mobileschool.MainActivity;
 import com.kikoteam.mobileschool.R;
-import com.kikoteam.mobileschool.avatar.newAvatar.HairSelector;
+import com.kikoteam.mobileschool.avatar.entities.Avatar;
+import com.kikoteam.mobileschool.avatar.processors.SavingProcessor;
 
 import java.lang.ref.WeakReference;
 

@@ -3,15 +3,14 @@ package com.kikoteam.mobileschool.avatar.newAvatar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.kikoteam.mobileschool.R;
-import com.kikoteam.mobileschool.avatar.Avatar;
-import com.kikoteam.mobileschool.avatar.ImageProcessor;
+import com.kikoteam.mobileschool.avatar.entities.Avatar;
+import com.kikoteam.mobileschool.avatar.processors.ImageProcessor;
 
 public class NoseSelector extends AppCompatActivity {
 

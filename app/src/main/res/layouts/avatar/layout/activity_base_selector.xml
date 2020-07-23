@@ -45,6 +45,69 @@
                 android:onClick="selectOption"
                 tools:srcCompat="@tools:sample/avatars" />
 
+            <ImageView
+                android:id="@+id/baseSelectorOption3"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/baseSelectorOption4"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/baseSelectorOption5"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/baseSelectorOption6"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/baseSelectorOption7"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/baseSelectorOption8"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/baseSelectorOption9"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/baseSelectorOption10"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/baseSelectorOption11"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:onClick="selectOption"
+                tools:srcCompat="@tools:sample/avatars" />
+
         </LinearLayout>
     </ScrollView>
 

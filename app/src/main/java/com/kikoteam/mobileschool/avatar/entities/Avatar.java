@@ -1,7 +1,8 @@
-package com.kikoteam.mobileschool.avatar;
+package com.kikoteam.mobileschool.avatar.entities;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+
+import com.kikoteam.mobileschool.avatar.processors.ImageProcessor;
 
 public class Avatar {
 

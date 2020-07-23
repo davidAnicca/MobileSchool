@@ -19,9 +19,20 @@ android {
         main {
             res.srcDirs =
                     [
+
+                            'src/main/res/avatar-components/base',
+                            'src/main/res/avatar-components/ear',
+                            'src/main/res/avatar-components/eyes',
+                            'src/main/res/avatar-components/eyesAccessory',
+                            'src/main/res/avatar-components/hair',
+                            'src/main/res/avatar-components/mouth',
+                            'src/main/res/avatar-components/nose',
+                            'src/main/res/avatar-components/otherAccessory',
+                            'src/main/res/avatar-components',
                             'src/main/res/layouts/avatar',
                             'src/main/res/layouts/login-register',
                             'src/main/res/layouts/main',
+                            'src/main/res/avatar-components',
                             'src/main/res/layouts',
                             'src/main/res'
                     ]
