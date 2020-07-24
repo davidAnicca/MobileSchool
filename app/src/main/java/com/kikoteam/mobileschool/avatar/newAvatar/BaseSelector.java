@@ -110,7 +110,6 @@ public class BaseSelector extends AppCompatActivity {
         Avatar.getInstance().setBase(ImageProcessor.getBitmapFromView(view));
         Avatar.getInstance().rebuild();
         finalForm.setImageBitmap(Avatar.getInstance().getFinalForm());
-
     }
 
 
