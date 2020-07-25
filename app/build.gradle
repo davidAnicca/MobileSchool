@@ -32,6 +32,7 @@ android {
                             'src/main/res/layouts/avatar',
                             'src/main/res/layouts/login-register',
                             'src/main/res/layouts/main',
+                            'src/main/res/layouts/work',
                             'src/main/res/avatar-components',
                             'src/main/res/layouts',
                             'src/main/res'
@@ -58,6 +59,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     implementation 'com.google.firebase:firebase-database:19.3.1'
     implementation 'com.google.firebase:firebase-firestore:21.5.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     testImplementation 'junit:junit:4.12'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
 
