@@ -7,6 +7,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setViews(){
+        TextView classCode = findViewById(R.id.mainClassCode);
+        classCode.setText(User.getInstance().getClassroomCode());
         seeAvatarButton = findViewById(R.id.mainSeeAvatarButton);
         seeAvatarImage = findViewById(R.id.mainAvatarImage);
     }

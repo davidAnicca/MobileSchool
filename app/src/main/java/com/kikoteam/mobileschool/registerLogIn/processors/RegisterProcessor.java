@@ -13,6 +13,16 @@ import java.util.Map;
 public class RegisterProcessor  {
     ///this class has background methods to initialize data-base :)
 
+    private static String classroomCode;
+
+    public static String getClassroomCode() {
+        return classroomCode;
+    }
+
+    public static void setClassroomCode(String newClassroomCode) {
+        classroomCode = newClassroomCode;
+    }
+
     public static void processRegister(){
             new InitializeDataBaseFields().execute();
     }
@@ -24,12 +34,18 @@ public class RegisterProcessor  {
             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            Map<String, String> url = new HashMap<>();
+            Map<String, String> avatarUrl = new HashMap<>();
             assert firebaseUser != null;
-            url.put("userID", firebaseUser.getUid());
-            url.put("Avatar url", "empty");
-            CollectionReference urls = db.collection("avatars");
-            urls.document(firebaseUser.getUid()).set(url);
+            avatarUrl.put("userID", firebaseUser.getUid());
+            avatarUrl.put("Avatar url", "empty");
+            CollectionReference AvatarUrlLocation = db.collection("avatars");
+            AvatarUrlLocation.document(firebaseUser.getUid()).set(avatarUrl);
+
+
+            Map<String, String> classroom = new HashMap<>();
+            classroom.put("classroom", classroomCode);
+            CollectionReference users = db.collection("users");
+            users.document(firebaseUser.getUid()).set(classroom);
 
             return null;
         }

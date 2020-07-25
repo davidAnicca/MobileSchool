@@ -16,15 +16,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.kikoteam.mobileschool.Application;
 import com.kikoteam.mobileschool.Initializer;
 import com.kikoteam.mobileschool.R;
+import com.kikoteam.mobileschool.registerLogIn.processors.ClassroomCodeVerifier;
 import com.kikoteam.mobileschool.registerLogIn.processors.RegisterProcessor;
 
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText inEmail, inPassword, inRepeatedPassword;
+    private EditText inEmail, inPassword, inRepeatedPassword, inClassCode;
     private FirebaseAuth fAuth;
     private ProgressBar progressBar;
 
@@ -34,6 +36,8 @@ public class RegisterActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         stopIfUserIsLoggedIn();
         setContentView(R.layout.activity_register);
+
+        Application.getInstance().setInitialized(false);
 
         setViews();
         initializeViews();
@@ -45,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         inEmail = findViewById(R.id.registerMail);
         inPassword = findViewById(R.id.registerPassword);
         inRepeatedPassword = findViewById(R.id.registerRepeatedPassword);
+        inClassCode = findViewById(R.id.classroomCode);
         progressBar = findViewById(R.id.registerProgressBar);
     }
 
@@ -68,6 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
         String email = inEmail.getText().toString().trim();
         String pass = inPassword.getText().toString().trim();
         String repeatedPassword = inRepeatedPassword.getText().toString().trim();
+        String classCode = inClassCode.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
             inEmail.setError(getString(R.string.empty_field));
@@ -89,10 +95,16 @@ public class RegisterActivity extends AppCompatActivity {
             progressBar.setVisibility(View.INVISIBLE);
             return false;
         }
+        if(TextUtils.isEmpty(classCode)){
+            inClassCode.setError(getString(R.string.empty_field));
+            progressBar.setVisibility(View.INVISIBLE);
+            return false;
+        }
+
         return true;
     }
 
-    private void addUser(String email, String pass) {
+    private void addUserToFirebase(String email, String pass) {
         fAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -124,14 +136,14 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void register(View view){
-
+    public void register(View view) {
+        progressBar.setVisibility(View.VISIBLE);
+        findViewById(R.id.registerBubbles).setVisibility(View.VISIBLE);
+        findViewById(R.id.registerBubbles2).setVisibility(View.VISIBLE);
         if(validateCredentials()) {
+            RegisterProcessor.setClassroomCode(inClassCode.getText().toString().trim());
             hideKeyboard();
-            progressBar.setVisibility(View.VISIBLE);
-            findViewById(R.id.registerBubbles).setVisibility(View.VISIBLE);
-            findViewById(R.id.registerBubbles2).setVisibility(View.VISIBLE);
-            addUser(inEmail.getText().toString().trim(), inPassword.getText().toString().trim());
+            addUserToFirebase(inEmail.getText().toString().trim(), inPassword.getText().toString().trim());
         }
     }
 

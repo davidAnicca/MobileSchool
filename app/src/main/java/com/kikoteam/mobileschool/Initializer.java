@@ -54,8 +54,10 @@ public class Initializer extends AppCompatActivity {
         logoAnimate();
 
         Avatar.resetInstance();
+        User.resetInstance();
         Avatar.getInstance();
 
+        getClassroomCode();
         getAvatarImageUrl();
 
     }
@@ -158,6 +160,28 @@ public class Initializer extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    private void getClassroomCode(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        DocumentReference documentReference = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        documentReference.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()){
+                            Map<String, Object> data = documentSnapshot.getData();
+                            String classroomCode = (String) data.get("classroom");
+                            User.getInstance().setClassroomCode(classroomCode);
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                User.getInstance().setClassroomCode("empty");
+            }
+        });
     }
 
 }

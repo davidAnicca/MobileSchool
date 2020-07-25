@@ -38,5 +38,7 @@
     <string name="make_sure_you_have_an_account">Asigură-te că ai introdus adresa corectă și că ești cu siguranță conectat la noi cu aceasta</string>
     <string name="image">imagine</string>
     <string name="save">salvare</string>
+    <string name="class_code">Codul de clasă</string>
+    <string name="classroom_do_not_exists">Această clasă nu există :(</string>
 </resources>
 
