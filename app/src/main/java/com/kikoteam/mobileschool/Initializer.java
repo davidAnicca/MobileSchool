@@ -174,6 +174,8 @@ public class Initializer extends AppCompatActivity {
                             Map<String, Object> data = documentSnapshot.getData();
                             String classroomCode = (String) data.get("classroom");
                             User.getInstance().setClassroomCode(classroomCode);
+                            getClassroomInfo(classroomCode);
+
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -182,6 +184,26 @@ public class Initializer extends AppCompatActivity {
                 User.getInstance().setClassroomCode("empty");
             }
         });
+    }
+
+    private void getClassroomInfo(String classCode){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        DocumentReference documentReference = db.collection("classrooms").document(classCode);
+        documentReference.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()){
+                            int numOfLessons = documentSnapshot.getLong("numOfLessons").intValue();
+                            int numOfHomeworks = documentSnapshot.getLong("numOfHomeworks").intValue();
+                            int numOfTests = documentSnapshot.getLong("numOfTests").intValue();
+                            User.getInstance().setNumOfHomeworks(numOfHomeworks);
+                            User.getInstance().setNumOfLessons(numOfLessons);
+                            User.getInstance().setNumOfTests(numOfTests);
+                        }
+                    }
+                });
     }
 
 }
