@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
+
 android {
     compileSdkVersion 29
     buildToolsVersion '30.0.0'
@@ -33,8 +34,18 @@ android {
                             'src/main/res/layouts/login-register',
                             'src/main/res/layouts/main',
                             'src/main/res/layouts/work',
+                            'src/main/res/layouts/chat',
                             'src/main/res/avatar-components',
                             'src/main/res/layouts',
+                            'src/main/res/avatar-components/base',
+                            'src/main/res/avatar-components/ear',
+                            'src/main/res/avatar-components/eyes',
+                            'src/main/res/avatar-components/eyesAccessory',
+                            'src/main/res/avatar-components/hair',
+                            'src/main/res/avatar-components/mouth',
+                            'src/main/res/avatar-components/nose',
+                            'src/main/res/avatar-components/otherAccessory',
+                            'src/main/res/avatar-components',
                             'src/main/res'
                     ]
         }
@@ -49,7 +60,13 @@ android {
 }
 
 dependencies {
+
+
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:23.4.0'
+    implementation 'com.firebaseui:firebase-ui:0.6.0'
 
     implementation 'androidx.appcompat:appcompat:1.3.0-alpha01'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

@@ -12,10 +12,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.kikoteam.mobileschool.chat.ClassroomChatActivity;
 import com.kikoteam.mobileschool.registerLogIn.RegisterActivity;
 import com.kikoteam.mobileschool.avatar.entities.Avatar;
-import com.kikoteam.mobileschool.avatar.newAvatar.BaseSelector;
-import com.kikoteam.mobileschool.work.WorkActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     public void createNewAvatar(View view) {
         Avatar.resetInstance();
         seeAvatarImage.setVisibility(View.GONE);
-        Intent intent = new Intent(this, BaseSelector.class);
+        Intent intent = new Intent(this, ClassroomChatActivity.class);
         startActivity(intent);
     }
 
