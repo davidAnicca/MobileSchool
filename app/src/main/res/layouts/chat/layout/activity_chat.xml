@@ -8,6 +8,7 @@
     tools:context="com.kikoteam.mobileschool.chat.ClassroomChatActivity">
 
     <ListView
+        android:transcriptMode="alwaysScroll"
         android:id="@+id/list_of_messages"
         android:layout_width="229dp"
         android:layout_height="492dp"
