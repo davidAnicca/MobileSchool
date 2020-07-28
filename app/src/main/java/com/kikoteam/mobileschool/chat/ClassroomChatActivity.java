@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,12 +19,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.kikoteam.mobileschool.R;
 import com.kikoteam.mobileschool.User;
+import com.kikoteam.mobileschool.avatar.entities.Avatar;
 
 import java.util.Objects;
 
 public class ClassroomChatActivity extends AppCompatActivity {
 
     private FirebaseListAdapter<Message> adapter;
+    private Initializer processor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,7 @@ public class ClassroomChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-
+        processor = new Initializer();
         FloatingActionButton fab =
                 (FloatingActionButton) findViewById(R.id.fab);
 
@@ -74,15 +78,16 @@ public class ClassroomChatActivity extends AppCompatActivity {
                 R.layout.message, FirebaseDatabase.getInstance().getReference("classrooms/"+User.getInstance().getClassroomCode())) {
             @Override
             protected void populateView(View v, Message model, int position) {
-                // Get references to the views of message.xml
-                TextView messageText = (TextView)v.findViewById(R.id.message_text);
-                TextView messageUser = (TextView)v.findViewById(R.id.message_user);
-                TextView messageTime = (TextView)v.findViewById(R.id.message_time);
+                TextView messageText = (TextView)v.findViewById(R.id.messageText);
+                TextView messageUser = (TextView)v.findViewById(R.id.messageUser);
+                TextView messageTime = (TextView)v.findViewById(R.id.messageTime);
+                ///processor.pasteBitmap("first", (ImageView)v.findViewById(R.id.messageAvatar));
 
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
                         model.getMessageTime()));
+
             }
         };
         listOfMessages.setAdapter(adapter);

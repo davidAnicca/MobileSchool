@@ -12,8 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".chat.ClassroomChatActivity"></activity>
-        <activity android:name=".work.WorkActivity" />
+        <activity
+            android:name=".chat.ClassroomChatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".work.WorkActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".avatar.newAvatar.OtherAccessorySelector"
             android:screenOrientation="portrait" />

@@ -1,34 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/message_user"
+        android:id="@+id/messageText"
         android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_below="@+id/messageUser"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="133dp"
+        android:fontFamily="@font/coming_soon"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:typeface="normal" />
+
+    <TextView
+        android:id="@+id/messageUser"
+        android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:textStyle="normal|bold"
-        tools:text="aaaaaaaaaaaa" />
-
-    <TextView
-        android:id="@+id/message_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/message_user"
         android:layout_alignParentEnd="true"
-        tools:text="1223" />
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="125dp"
+        android:fontFamily="@font/coming_soon"
+        android:text="TextView" />
 
     <TextView
-        android:id="@+id/message_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/messageTime"
+        android:layout_width="254dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/message_user"
+        android:layout_below="@+id/messageText"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="18sp"
-        tools:text="kkkk" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="97dp"
+        android:fontFamily="@font/coming_soon"
+        android:text="TextView" />
 
+    <ImageView
+        android:id="@+id/messageAvatar"
+        android:layout_width="75dp"
+        android:layout_height="79dp"
+        android:layout_alignBottom="@+id/messageTime"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/app_logo" />
 </RelativeLayout>
