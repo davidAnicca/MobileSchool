@@ -7,6 +7,20 @@
     tools:context=".avatar.newAvatar.SaveAvatar">
 
     <ImageView
+        android:id="@+id/saveAvatarBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background2"
+        tools:srcCompat="@drawable/background2" />
+
+    <ImageView
         android:id="@+id/saveAvatarFinalForm"
         android:layout_width="255dp"
         android:layout_height="189dp"
