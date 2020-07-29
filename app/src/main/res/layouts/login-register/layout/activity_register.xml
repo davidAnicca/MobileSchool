@@ -99,38 +99,17 @@
         app:layout_constraintTop_toBottomOf="@+id/registerPassword"
         tools:text="@string/repeat_password" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/class_code"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/classroomCode"
-        app:layout_constraintTop_toBottomOf="@+id/registerRepeatedPassword" />
-
-    <EditText
-        android:id="@+id/classroomCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
     <Button
         android:id="@+id/register"
         style="@android:style/Widget.DeviceDefault.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="36dp"
         android:onClick="register"
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classroomCode"
+        app:layout_constraintTop_toBottomOf="@+id/registerRepeatedPassword"
         tools:targetApi="p" />
 
     <TextView

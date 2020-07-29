@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ClassroomChatActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        finish();
     }
 
     public void newAvatar(View view) {
