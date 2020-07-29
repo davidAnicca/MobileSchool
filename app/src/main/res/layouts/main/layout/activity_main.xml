@@ -32,17 +32,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/mainCreateNewAvatar"
+        android:id="@+id/mainClassroomChat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:onClick="createNewAvatar"
-        android:text="@string/new_avatar"
+        android:layout_marginTop="29dp"
+        android:onClick="classroomChat"
+        android:text="@string/classroom_chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainLogOutButton"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintTop_toBottomOf="@+id/mainNewAvatar"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/mainSeeAvatarButton"
@@ -89,8 +90,10 @@
         android:src="@drawable/bubbles"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/mainClassCode"
@@ -100,6 +103,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mainNewAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:onClick="newAvatar"
+        android:text="@string/new_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainLogOutButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

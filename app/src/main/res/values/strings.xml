@@ -40,5 +40,6 @@
     <string name="save">salvare</string>
     <string name="class_code">Codul de clasă</string>
     <string name="classroom_do_not_exists">Această clasă nu există :(</string>
+    <string name="classroom_chat">Discută cu clasa</string>
 </resources>
 
