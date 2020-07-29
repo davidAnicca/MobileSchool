@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".registerLogIn.ClassroomCodeRoom"></activity>
+        <activity
+            android:name=".registerLogIn.ClassroomCodeRoom"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".chat.ClassroomChatActivity"
             android:screenOrientation="portrait" />
